@@ -1,6 +1,7 @@
 import {useEffect} from 'react'
 import {getMovies} from '../redux/actionCreators'
 import {connect} from  'react-redux'
+import MoviePage from '../components/Moviepage.js'
 
 function MovieIndex({getMovies, movies}) {
 
@@ -8,7 +9,9 @@ function MovieIndex({getMovies, movies}) {
     useEffect(() => movies.length === 0 && getMovies(), [movies])
     // console.log(props.movies)
 
-    return <h1> Movies go here </h1>
+    return <div className="fullpage">
+        {movies.map(movie => <MoviePage {...movie} key={movie.id} />)}
+    </div>
 
     
 
