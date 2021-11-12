@@ -6,7 +6,7 @@ import MoviePage from '../components/Moviepage.js'
 function MovieIndex({getMovies, movies}) {
 
 
-    useEffect(() => getMovies, [getMovies])
+    useEffect(() => getMovies, [movies])
     // console.log(props.movies)
 
     return <div className="fullpage">

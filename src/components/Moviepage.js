@@ -1,9 +1,9 @@
-export default function MoviePage({title, poster_img, imdb_rating, runtime}){
+export default function MoviePage({title, posterImg, imdbRating, runtime}){
 
     return <div className="frontpage">
      <h1>{title}</h1>
-     <img src={poster_img} />
-     <p>{imdb_rating}</p>
+     <img src={posterImg} alt={title}/>
+     <p>{imdbRating}</p>
      <p>{runtime}</p>
 
     </div>
