@@ -3,10 +3,11 @@ import {getMovies} from '../redux/actionCreators'
 import {connect} from  'react-redux'
 import MoviePage from '../components/Moviepage.js'
 
+
 function MovieIndex({getMovies, movies}) {
 
 
-    useEffect(() => getMovies, [movies])
+    useEffect(() => getMovies, [getMovies])
     // console.log(props.movies)
 
     return <div className="fullpage">
