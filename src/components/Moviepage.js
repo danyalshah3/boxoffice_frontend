@@ -1,8 +1,13 @@
-export default function MoviePage({title, posterImg, imdbRating, runtime}){
+import {Link} from 'react-router-dom'
+
+
+export default function MoviePage({id, title, posterImg, imdbRating, runtime}){
+
+    // console.log(id)
 
     return <div className="frontpage">
-     <h1>{title}</h1>
-     <img src={posterImg} alt={title}/>
+     <Link to={`/movies/${id}`}><h1>{title}</h1></Link>
+     <Link to={`/movies/${id}`}><img src={posterImg} alt={title}/></Link>
      <p>{imdbRating}</p>
      <p>{runtime}</p>
 

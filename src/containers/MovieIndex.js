@@ -2,12 +2,14 @@ import {useEffect} from 'react'
 import {getMovies} from '../redux/actionCreators'
 import {connect} from  'react-redux'
 import MoviePage from '../components/Moviepage.js'
+// import {useParams} from 'react-router-dom'
 
 
 function MovieIndex({getMovies, movies}) {
 
+    // console.log(useParams())
 
-    useEffect(() => getMovies, [getMovies])
+    useEffect(() => movies.length === 0 && getMovies(), [getMovies])
     // console.log(props.movies)
 
     return <div className="fullpage">

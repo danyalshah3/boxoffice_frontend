@@ -19,7 +19,7 @@ const initialState = {
     }
 }
 
-
+// title, released, genre, posterImg, imdbRating, runtime, director, writer, actor, plot, language, awards, boxOffice, trailer
 export default function reducer(state=initialState, action) {
     
     switch (action.type){
