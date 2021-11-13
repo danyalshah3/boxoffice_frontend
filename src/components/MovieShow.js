@@ -1,21 +1,26 @@
 import {useParams} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getMovie} from '../redux/actionCreators'
+import {clearMovie} from '../redux/actionCreators'
 import {useEffect} from 'react'
 import {Link} from 'react-router-dom'
+import Nav from './Nav'
 
-function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, runtime, director, writer, actor, plot, language, awards, boxOffice, trailer}) {
+function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, runtime, director, writer, actor, plot, language, awards, boxOffice, trailer, clearMovie, id}) {
 
     const routeId = useParams().id
     // const  url = `http://localhost:3000/movies/${routeId}`
     // console.log(props)
     useEffect(() => {
         getMovie(routeId)
-    }, [getMovie, routeId])
+        return clearMovie
+    }, [getMovie, routeId, clearMovie])
 
-return <div className="showUS">
+    const spinner = () => <div className="loader"></div>
+    const loadedPage = () =>
+    <div className="showUS">
     <h1>Show</h1>
-    <Link to={`/movies`}>See All Movies</Link>
+    <Nav/>
     <h1>{title}</h1>
     <p>Date: {released}</p>
     <p>Genre: {genre}</p>
@@ -37,12 +42,11 @@ return <div className="showUS">
 
     </span>
     </div>
-
-
+return id ? loadedPage() : spinner()
 }
 
 const mapStateToProps = (state) => {
     return {...state.selectedMovie}
 }
 
-export default connect(mapStateToProps, {getMovie})(MovieShow);
+export default connect(mapStateToProps, {getMovie, clearMovie})(MovieShow);

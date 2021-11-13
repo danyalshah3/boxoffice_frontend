@@ -12,3 +12,5 @@ export const getMovie = (id) => {
     .then(res => res.json())
     .then(movie => dispatch({type: 'GET_MOVIE', payload: movie}))
 }
+
+export const clearMovie = () =>  ({type: "CLEAR_MOVIE"})

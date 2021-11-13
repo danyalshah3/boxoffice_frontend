@@ -1,22 +1,26 @@
+const initialList = {
+    title: "",
+    released: "",
+    genre: "",
+    posterImg: "",
+    imdbRating: null,
+    runtime: "",
+    director: "",
+    writer: "",
+    actor: "",
+    plot: "",
+    language: "",
+    awards: "",
+    boxOffice: "null",
+    trailer: "",
+    id: null
+  
+}
+
+
 const initialState = {
     movies: [],
-    selectedMovie: {
-        title: "",
-        released: "",
-        genre: "",
-        posterImg: "",
-        imdbRating: 0,
-        runtime: "",
-        director: "",
-        writer: "",
-        actor: "",
-        plot: "",
-        language: "",
-        awards: "",
-        boxOffice: "0",
-        trailer: ""
-      
-    }
+    selectedMovie: initialList
 }
 
 // title, released, genre, posterImg, imdbRating, runtime, director, writer, actor, plot, language, awards, boxOffice, trailer
@@ -28,6 +32,10 @@ export default function reducer(state=initialState, action) {
 
         case "GET_MOVIE":
             return {...state, selectedMovie: action.payload}
+
+        case "CLEAR_MOVIE":
+            return {...state, selectedMovie: initialList}
+
         default: 
         return {...state}
      

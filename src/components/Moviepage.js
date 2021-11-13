@@ -8,8 +8,6 @@ export default function MoviePage({id, title, posterImg, imdbRating, runtime}){
     return <div className="frontpage">
      <Link to={`/movies/${id}`}><h1>{title}</h1></Link>
      <Link to={`/movies/${id}`}><img src={posterImg} alt={title}/></Link>
-     <p>{imdbRating}</p>
-     <p>{runtime}</p>
 
     </div>
 }
