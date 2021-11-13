@@ -16,25 +16,25 @@ function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, run
         return clearMovie
     }, [getMovie, routeId, clearMovie])
 
-    // const spinner = () => <div className="loader"></div>
-    // const loadedPage = () =>
-    // <div className="showUS">
-    // <h1>Show</h1>
-    // <Nav/>
-    // <h1>{title}</h1>
-    // <p>Date: {released}</p>
-    // <p>Genre: {genre}</p>
-    // <img src={posterImg} alt={title}/>
-    // <p>ImdbRating: {imdbRating}</p>
-    // <p>Runtime: {runtime}</p>
-    // <p>Director: {director}</p>
-    // <p>Writer: {writer}</p>
-    // <p>Actors: {actor}</p>
-    // <p>Plot: {plot}</p>
-    // <p>Language: {language}</p>
-    // <p>Awards: {awards}</p>
-    // <p>Collection: {boxOffice}</p>
-    // <p>Trailer: {trailer}</p>
+    const spinner = () => <div className="loader"></div>
+    const loadedPage = () =>
+    <div className="showUS">
+    <h1>Show</h1>
+    <Nav/>
+    <h1>{title}</h1>
+    <p>Date: {released}</p>
+    <p>Genre: {genre}</p>
+    <img src={posterImg} alt={title}/>
+    <p>ImdbRating: {imdbRating}</p>
+    <p>Runtime: {runtime}</p>
+    <p>Director: {director}</p>
+    <p>Writer: {writer}</p>
+    <p>Actors: {actor}</p>
+    <p>Plot: {plot}</p>
+    <p>Language: {language}</p>
+    <p>Awards: {awards}</p>
+    <p>Collection: {boxOffice}</p>
+    <p>Trailer: {trailer}</p>
 
    <span className="arrows">
     <Link to={`/movies/${parseInt(routeId) - 1}`}>🔙</Link>
