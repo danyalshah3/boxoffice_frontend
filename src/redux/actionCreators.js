@@ -37,6 +37,6 @@ export const Login = (user) => {
       body: JSON.stringify(user)
     })
     .then(res => res.json())
-    .then(console.log)
+    .then(user => dispatch({type: "SET_USER", payload: user}))
   }
   

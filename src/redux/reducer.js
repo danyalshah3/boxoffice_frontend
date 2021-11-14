@@ -42,8 +42,8 @@ export default function reducer(state=initialState, action) {
             return {...state, selectedMovie: initialList}
         case "SET_USER":
             return {...state, user: action.payload}
-        // case "GET_USER":
-        //     return {...state, user: action.payload}
+        case "GET_USER":
+            return {...state, user: action.payload}
 
         default: 
         return {...state}
