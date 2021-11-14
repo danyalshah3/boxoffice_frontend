@@ -17,7 +17,7 @@ export const clearMovie = () =>  ({type: "CLEAR_MOVIE"})
 
 
 export const signUp = (user) => {
-  return dipatch => fetch("http://localhost:3000/signup", {
+  return dispatch => fetch("http://localhost:3000/users", {
     method: 'POST', // or 'PUT'
     headers: {
       'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ export const signUp = (user) => {
 }
 
 export const Login = (user) => {
-    return dipatch => fetch("http://localhost:3000/sessions", {
+    return dispatch => fetch("http://localhost:3000/sessions", {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',

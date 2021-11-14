@@ -3,6 +3,7 @@ import {useState} from 'react'
 import {signUp} from '../redux/actionCreators'
 import {Login} from '../redux/actionCreators'
 import {connect} from 'react-redux'
+import {useHistory} from 'react-router-dom'
 
 function Auth(props) {
 
@@ -12,12 +13,13 @@ function Auth(props) {
    const [creditcardnum, setCreditCardNum] = useState("")
    const [password, setPassword] = useState("")
 
-
    const toggleSignUp = () => setSignUp(!signup)
-
+   const history = useHistory()
+   
    const handleSubmit = (e) => {
        e.preventDefault()
-      { signup ? props.signUp({name, username, creditcardnum, password}) : props.Login({username, password})}
+       { signup ? props.signUp({name, username, creditcardnum, password}) : props.Login({username, password})}
+        history.push("/movies")
    }
 
     return <>
