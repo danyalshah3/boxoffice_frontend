@@ -3,20 +3,30 @@ import './App.css';
 import MovieIndex from './containers/MovieIndex'
 import MovieShow from './components/MovieShow'
 import {Switch, Route} from 'react-router-dom'
+import { connect } from 'react-redux';
+import Auth from './components/Auth'
 // import Nav from './components/Nav'
 
 
-function App() {
+function App(props) {
+  console.log(props)
   return (
     <>
- <h1>Movies</h1>
-
-    <Switch>
+    {props.user.username ?
+      <Switch>
       <Route path="/movies/:id"><MovieShow/></Route>
-    <Route path="/movies"><MovieIndex /></Route>
-      </Switch>
+      <Route path="/movies"><MovieIndex /></Route>
+      </Switch> :
+      <Auth/>
+    }
+    
      </>
+    
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {user: state.user}
+}
+
+export default connect(mapStateToProps)(App);

@@ -19,7 +19,6 @@ function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, run
     const spinner = () => <div className="loader"></div>
     const loadedPage = () =>
     <div className="showUS">
-    <h1>Show</h1>
     <Nav/>
     <h1>{title}</h1>
     <p>Date: {released}</p>
@@ -34,7 +33,12 @@ function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, run
     <p>Language: {language}</p>
     <p>Awards: {awards}</p>
     <p>Collection: {boxOffice}</p>
-    <p>Trailer: {trailer}</p>
+    {/* <iframe src={trailer} name="iframe_a" height="300px" width="100%" title="trailer">Watch trailer Here</iframe> */}
+<p><a href={trailer} target="blank">Watch trailer Here</a></p>
+
+   
+
+
 
    <span className="arrows">
     <Link to={`/movies/${parseInt(routeId) - 1}`}>🔙</Link>

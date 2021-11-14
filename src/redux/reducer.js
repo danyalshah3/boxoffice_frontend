@@ -17,10 +17,15 @@ const initialList = {
   
 }
 
+const initialUser= {
+    username: ""
+
+}
 
 const initialState = {
     movies: [],
-    selectedMovie: initialList
+    selectedMovie: initialList,
+    user: initialUser
 }
 
 // title, released, genre, posterImg, imdbRating, runtime, director, writer, actor, plot, language, awards, boxOffice, trailer
@@ -35,6 +40,10 @@ export default function reducer(state=initialState, action) {
 
         case "CLEAR_MOVIE":
             return {...state, selectedMovie: initialList}
+        case "SET_USER":
+            return {...state, user: action.payload}
+        // case "GET_USER":
+        //     return {...state, user: action.payload}
 
         default: 
         return {...state}
