@@ -5,11 +5,14 @@ import MovieShow from './components/MovieShow'
 import {Switch, Route} from 'react-router-dom'
 import { connect } from 'react-redux';
 import Auth from './components/Auth'
+import {useEffect} from 'react'
+import {autoLogin} from './redux/actionCreators'
 // import Nav from './components/Nav'
 
 
 function App(props) {
-  console.log(props)
+  
+  useEffect(() => localStorage.token && props.autoLogin(), [autoLogin])
   return (
     <>
     {props.user.username ?
@@ -29,4 +32,4 @@ const mapStateToProps = (state) => {
   return {user: state.user}
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, {autoLogin})(App);
