@@ -28,7 +28,7 @@ export const signUp = (user) => {
   .then(user => dispatch({type: "SET_USER", payload: user}))
 }
 
-export const Login = (user) => {
+export const login = (user) => {
     return dispatch => fetch("http://localhost:3000/sessions", {
       method: 'POST', // or 'PUT'
       headers: {

@@ -1,7 +1,7 @@
 // import Auth from 'react'
 import {useState} from 'react'
 import {signUp} from '../redux/actionCreators'
-import {Login} from '../redux/actionCreators'
+import {login} from '../redux/actionCreators'
 import {connect} from 'react-redux'
 import {useHistory} from 'react-router-dom'
 
@@ -18,7 +18,7 @@ function Auth(props) {
    
    const handleSubmit = (e) => {
        e.preventDefault()
-       { signup ? props.signUp({name, username, creditcardnum, password}) : props.Login({username, password})}
+       { signup ? props.signUp({name, username, creditcardnum, password}) : props.login({username, password})}
         history.push("/movies")
    }
 
@@ -51,4 +51,4 @@ function Auth(props) {
 }
 
 
-export default connect (null , {signUp, Login})(Auth);
+export default connect (null , {signUp, login})(Auth);
