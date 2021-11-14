@@ -10,7 +10,7 @@ import {autoLogin} from './redux/actionCreators'
 // import Nav from './components/Nav'
 
 
-function App({user}) {
+function App({user, autoLogin}) {
   
   useEffect(() => localStorage.token && autoLogin(), [autoLogin])
   // console.log(localStorage.token)
@@ -34,4 +34,4 @@ const mapStateToProps = (state) => {
   return {user: state.user}
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, {autoLogin})(App);
