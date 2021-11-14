@@ -12,18 +12,21 @@ function Auth(props) {
    const [username, setUsername] = useState("")
    const [creditcardnum, setCreditCardNum] = useState("")
    const [password, setPassword] = useState("")
-
-   const toggleSignUp = () => setSignUp(!signup)
    const history = useHistory()
+//    const spinner = () => <div className="loader"></div>
+   const toggleSignUp = () => setSignUp(!signup)
    
+
    const handleSubmit = (e) => {
        e.preventDefault()
        { signup ? props.signUp({name, username, creditcardnum, password}) : props.login({username, password})}
-        history.push("/movies")
+       history.push("/")
    }
 
+   
     return <>
       {signup ? <h1>Sign up</h1> : <h1>Login</h1>}
+      
 
      <form onSubmit={handleSubmit}>
      {signup && <label>
@@ -47,6 +50,7 @@ function Auth(props) {
 
       <button onClick={toggleSignUp}> {signup ? "Login" : "SignUp"} </button>
          </>
+
 
 }
 

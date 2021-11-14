@@ -7,10 +7,12 @@ import { connect } from 'react-redux';
 import Auth from './components/Auth'
 import {useEffect} from 'react'
 import {autoLogin} from './redux/actionCreators'
+import Home from './components/Home'
+// import Logout from './components/Logout';
 // import Nav from './components/Nav'
 
 
-function App({user, autoLogin}) {
+function App({user}) {
   
   useEffect(() => localStorage.token && autoLogin(), [autoLogin])
   // console.log(localStorage.token)
@@ -18,9 +20,10 @@ function App({user, autoLogin}) {
     <>
     {user.username ?
       <Switch>
+        <Logout/>
       <Route path="/movies/:id"><MovieShow/></Route>
       <Route path="/movies"><MovieIndex /></Route>
-      <Route exact path="/"><MovieIndex/></Route>
+      <Route exact path="/"><Home/></Route>
       </Switch> :
       <Auth/>
     }
