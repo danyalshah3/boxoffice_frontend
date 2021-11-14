@@ -10,15 +10,17 @@ import {autoLogin} from './redux/actionCreators'
 // import Nav from './components/Nav'
 
 
-function App(props) {
+function App({user}) {
   
-  useEffect(() => localStorage.token && props.autoLogin(), [autoLogin])
+  useEffect(() => localStorage.token && autoLogin(), [autoLogin])
+  // console.log(localStorage.token)
   return (
     <>
-    {props.user.username ?
+    {user.username ?
       <Switch>
       <Route path="/movies/:id"><MovieShow/></Route>
       <Route path="/movies"><MovieIndex /></Route>
+      <Route exact path="/"><MovieIndex/></Route>
       </Switch> :
       <Auth/>
     }
@@ -32,4 +34,4 @@ const mapStateToProps = (state) => {
   return {user: state.user}
 }
 
-export default connect(mapStateToProps, {autoLogin})(App);
+export default connect(mapStateToProps)(App);

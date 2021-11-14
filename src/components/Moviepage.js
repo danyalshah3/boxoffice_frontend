@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom'
 
 
-export default function MoviePage({id, title, posterImg, imdbRating, runtime}){
+export default function MoviePage({id, title, posterImg}){
 
     // console.log(id)
 

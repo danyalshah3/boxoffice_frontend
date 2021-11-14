@@ -22,14 +22,16 @@ export const signUp = (user) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(user)
+    body: JSON.stringify(user),
   })
   .then(res => res.json())
+//   .then(console.log)
   .then(response => {
-     localStorage.token = response.token
-     dispatch({type: "SET_USER", payload: response.user})
-  })
+      localStorage.token = response.token
+      dispatch({type: "SET_USER", payload: response.user})
+    })
 }
+//   .then(user =>  dispatch({type: "SET_USER", payload: user}))
 
 export const login = (user) => {
     return dispatch => fetch("http://localhost:3000/sessions", {
@@ -37,15 +39,16 @@ export const login = (user) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(user)
+      body: JSON.stringify(user),
     })
     .then(res => res.json())
     .then(response => {
-        localStorage.token = response.token
-        dispatch({type: "SET_USER", payload: response.user})
-     })
-  }
-  
+          localStorage.token = response.token
+          dispatch({type: "SET_USER", payload: response.user})
+        })
+      }
+
+    
 
   export const autoLogin = () => {
     return dispatch => fetch("http://localhost:3000/me", {
