@@ -62,3 +62,5 @@ export const login = (user) => {
       dispatch({type: "SET_USER", payload: response.user})
     })
   }
+
+  export const clearUser= () =>  ({type: "CLEAR_USER"})

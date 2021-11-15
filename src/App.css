@@ -137,3 +137,14 @@ textarea {
   100% { transform: rotate(360deg); }
 }
 
+.img{
+  position: relative;
+  transition: transform 0.2s;
+  float: left;
+} 
+
+ .img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+

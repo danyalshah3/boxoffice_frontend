@@ -1,15 +1,13 @@
 import {Link} from 'react-router-dom'
+// import {movie} from './movie.scss'
 
 
 export default function MoviePage({id, title, posterImg}){
 
-    // console.log(id)
-
-    return <div className="frontpage">
-        <h1>Movies</h1>
-
-     <Link to={`/movies/${id}`}><h1>{title}</h1></Link>
+    return <div className="container-fluid">
+     {/* <Link to={`/movies/${id}`}><h2>{title}</h2></Link> */}
+     {/* <div className="img"> */}
      <Link to={`/movies/${id}`}><img src={posterImg} alt={title}/></Link>
-
-    </div>
+     </div>
+    // </div>
 }

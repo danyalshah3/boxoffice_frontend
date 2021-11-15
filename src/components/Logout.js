@@ -1,17 +1,29 @@
-import { useHistory } from "react-router";
-import {connect} from 'react-redux'
-
-function Logout() {
-
-const history = useHistory()
-   const logout = () => {
-    localStorage.removeItem({});
-     history.push("sessions")
-
-   }
+  import { useHistory } from "react-router";
+// import { useImperativeHandle } from 'react';
+// import {connect} from 'react-redux'
+// import {clearUser} from '../redux/actionCreators'
 
 
-   return <button onClick={logout}>Log Out</button>
+
+function Logout () {
+
+     const history =  useHistory()
+
+     const handleClick = () => {
+         localStorage.clear();
+         history.push("/")
+         
+     }
+    
+    
+    
+    return <button onClick={handleClick()}>Log Out</button>
 }
 
-export default connect(null, )(Logout)
+
+
+
+// logout() {
+//     localStorage.clear();
+// }
+export default Logout
