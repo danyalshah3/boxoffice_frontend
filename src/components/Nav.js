@@ -1,29 +1,29 @@
 import {NavLink} from 'react-router-dom'
-import Logout from './Logout'
 
-
-export const Nav = () => {
-    return <nav className="seeall">
-        <button> <NavLink to={`/movies`}>See All Movies</NavLink></button>
-     </nav>
- }
+    export const Nav = () => {
+        return <nav className="nav">
+           <button className="button"><NavLink  to={`/movies`}><h3>See All Movies</h3></NavLink></button>
+        </nav>
+    }
  
  <br></br>
 
- export const Nav2 = () => {
- return <nav className="others">
- <button><NavLink to={"/Home"}><h3>Home</h3></NavLink></button>
- {/* <Logout/> */}
- <button><NavLink to={"/"}><h3>Logout</h3></NavLink></button>
- </nav>
- }
+    export const Nav2 = () => {
+        return <nav className="nav2">
+           <button className="button"><NavLink to={"/home"}><h3>Home</h3></NavLink></button>
+           <button className="button"><NavLink to={"/transations"}><h3>Cart</h3></NavLink></button>
+        </nav>
+       
+       {/* <button className="button"><NavLink to={"/"}><h3>Logout</h3></NavLink></button> */}
+    }
+ 
+
+    export const Nav3 = () => {
+
+        return <nav>
+             <button><NavLink to="/transations"><h2>Rent(HD)</h2></NavLink></button>
+        </nav>
+    }
  
  
  
- // export default Nav
- 
-// function Nav() {
-//    return <nav className="seeall">
-//        <button><NavLink to={`/movies`}>See All Movies</NavLink></button>
-//        <button><NavLink to={"/Home"}><h3>Home</h3></NavLink></button>
-//     </nav>

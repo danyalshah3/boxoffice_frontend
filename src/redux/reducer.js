@@ -22,10 +22,16 @@ const initialUser= {
 
 }
 
+const initialCart = {
+    items: ""
+}
+
 const initialState = {
     movies: [],
     selectedMovie: initialList,
-    user: initialUser
+    user: initialUser,
+    myCart: initialCart,
+    likes: 0
 }
 
 // title, released, genre, posterImg, imdbRating, runtime, director, writer, actor, plot, language, awards, boxOffice, trailer
@@ -42,8 +48,12 @@ export default function reducer(state=initialState, action) {
             return {...state, selectedMovie: initialList}
         case "SET_USER":
             return {...state, user: action.payload}
-            case "CLEAR_USER":
-                return {...state, user: initialUser}
+            // case "LOGOUT":
+            //     return {...state, user: initialUser}
+        case "FILL_CART":
+            return {...state, myCart: action.payload}  
+            case "LIKE":
+                return {...state, likes: action.payload + 1 }      
 
         default: 
         return {...state}

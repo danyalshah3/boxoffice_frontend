@@ -4,13 +4,14 @@
 
 export default function Home () {
 
-    return <div className="title">
+    return <div className="home">
         <Nav/>
         <Nav2/>
-       
+           <div className="heading">
             <h1>Welcome To BOX OFFICE</h1>
+           
             <h3>-NEW ERA OF CINEMA-</h3>
-            <img src="https://i.imgur.com/8sMqUgl.gif" alt="gif" />
+        </div>
     </div>
 
 }

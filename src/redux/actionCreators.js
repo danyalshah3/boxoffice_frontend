@@ -63,4 +63,18 @@ export const login = (user) => {
     })
   }
 
-  export const clearUser= () =>  ({type: "CLEAR_USER"})
+//   export const Logout = () =>  ({type: "LOGOUT"})
+
+export const fillCart = (user) => {
+    return dispatch => fetch("http://localhost:3000//users/transations", {
+        method: 'POST', // or 'PUT'
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
+      })
+      .then(res => res.json())
+    .then(response => {
+      dispatch({type: "FILL_CART", payload: response.transactions})
+    })
+  }
