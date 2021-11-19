@@ -22,15 +22,17 @@ const initialUser= {
 
 }
 
-const initialCart = {
-    items: ""
-}
+// const initialCart = {
+//     items: ""
+// }
+
+
 
 const initialState = {
     movies: [],
     selectedMovie: initialList,
     user: initialUser,
-    myCart: initialCart,
+    // myCart: initialCart,
     likes: 0
 }
 
@@ -48,12 +50,15 @@ export default function reducer(state=initialState, action) {
             return {...state, selectedMovie: initialList}
         case "SET_USER":
             return {...state, user: action.payload}
-            // case "LOGOUT":
-            //     return {...state, user: initialUser}
-        case "FILL_CART":
-            return {...state, myCart: action.payload}  
+            case "LOGOUT":
+                return {...state, user: initialUser}
+        // case "FILL_CART":
+        //     return {...state, myCart: action.payload}  
             case "LIKE":
-                return {...state, likes: action.payload + 1 }      
+                return {...state, likes: state.likes + 1 }   
+                case "DISLIKE":
+                    return {...state, likes: state.likes - 1 }      
+       
 
         default: 
         return {...state}

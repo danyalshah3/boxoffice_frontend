@@ -13,7 +13,6 @@ function Auth(props) {
    const [creditcardnum, setCreditCardNum] = useState("")
    const [password, setPassword] = useState("")
    const history = useHistory()
-//    const spinner = () => <div className="loader"></div>
    const toggleSignUp = () => setSignUp(!signup)
    
 
@@ -25,7 +24,7 @@ function Auth(props) {
 
    
     return <>
-      {signup ? <h1>Sign up</h1> : <h1>Login</h1>}
+      {signup ? <h1>SIGN UP</h1> : <h1>LOGIN</h1>}
       
 
      <form onSubmit={handleSubmit}>
@@ -48,7 +47,7 @@ function Auth(props) {
         <input type="submit" value="Submit" />
      </form>
 
-      <button onClick={toggleSignUp}> {signup ? "Login" : "SignUp"} </button>
+      <button onClick={toggleSignUp}> {signup ? "LOGIN" : "SIGNUP"} </button>
          </>
 
 

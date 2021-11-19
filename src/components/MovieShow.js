@@ -4,10 +4,8 @@ import {getMovie} from '../redux/actionCreators'
 import {clearMovie} from '../redux/actionCreators'
 import {useEffect} from 'react'
 import {Link} from 'react-router-dom'
-import {Nav} from './Nav'
-import {Nav2} from './Nav'
-import {Nav3} from './Nav'
-// import {Nav2} from './Nav'
+import Nav from './Nav'
+import Cart from './Cart'
 
 
 function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, runtime, director, writer, actor, plot, language, awards, boxOffice, trailer, clearMovie, id}) {
@@ -22,7 +20,7 @@ function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, run
     const loadedPage = () =>
     <div className="showUS">
     <Nav/>
-    <Nav2/>
+  
    
     <h1 className="title">{title}</h1>
     <p  className="date">Date: {released}</p>
@@ -39,8 +37,8 @@ function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, run
     <p  className="collection">Collection: {boxOffice}</p>
   <p><a href={trailer} target="blank">Watch trailer Here</a></p>
 
-    <Nav3/>
-
+    {/* <Nav3/> */}
+  <Cart/>
    
 
 

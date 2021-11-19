@@ -63,18 +63,46 @@ export const login = (user) => {
     })
   }
 
-//   export const Logout = () =>  ({type: "LOGOUT"})
-
-export const fillCart = (user) => {
-    return dispatch => fetch("http://localhost:3000//users/transations", {
-        method: 'POST', // or 'PUT'
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(user),
-      })
-      .then(res => res.json())
-    .then(response => {
-      dispatch({type: "FILL_CART", payload: response.transactions})
-    })
+  export const Logout = () => {
+      return dispatch => {
+          localStorage.clear()
+          dispatch({type: "LOGOUT"})
+      }
   }
+
+// export const Logout = () => ({type: "LOGOUT"})
+// export const fillCart = (user) => {
+//     return dispatch => fetch("http://localhost:3000/users", {
+//         method: 'POST', // or 'PUT'
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(user),
+//       })
+//       .then(res => res.json())
+//     .then(response => {
+//       dispatch({type: "FILL_CART", payload: response.transactions})
+//     })
+//   }
+
+
+//   export const like = (userId, likeId) => {
+//       console.log("hi")
+//     return dispatch => fetch(`http://localhost:3000/users`, {
+//       method: 'POST', // or 'PUT'
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({
+//           user_id: userId,
+//           like_id: likeId
+//       }),
+//     })
+//     .then(res => res.json())
+//     .then(console.log)
+    // .then(response => {
+    //     localStorage.token = response.token
+    //     dispatch({type: "LIKE", payload: response.user})
+    //   })
+//   }
+

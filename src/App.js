@@ -10,8 +10,7 @@ import {autoLogin} from './redux/actionCreators'
 import Home from './components/Home'
 import Welcome from './components/Welcome'
 import Cart from './components/Cart'
- 
-import Logout from './components/Logout';
+
 
 
 function App({user, autoLogin}) {
@@ -35,7 +34,7 @@ function App({user, autoLogin}) {
     }
     
      </>
-
+    
      
     
   );
