@@ -5,6 +5,13 @@ import {login} from '../redux/actionCreators'
 import {connect} from 'react-redux'
 import {useHistory} from 'react-router-dom'
 
+import * as React from 'react';
+import Button from '@mui/material/Button';
+
+
+
+
+
 function Auth(props) {
 
    const [signup, setSignUp] = useState(false)
@@ -14,6 +21,8 @@ function Auth(props) {
    const [password, setPassword] = useState("")
    const history = useHistory()
    const toggleSignUp = () => setSignUp(!signup)
+
+
    
 
    const handleSubmit = (e) => {
@@ -38,16 +47,16 @@ function Auth(props) {
         </label>
         {signup && <label>
          Credit Card Number:
-        <input type="number" name="creditcard" placeholder="e.g Master, Visa, AE"   value={creditcardnum} onChange={(e) => setCreditCardNum(e.target.value)}/>
+        <input type="text" name="creditcard" placeholder="e.g Master, Visa, AE"   value={creditcardnum} onChange={(e) => setCreditCardNum(e.target.value)}/>
         </label>}
         <label>
          Password:
         <input type="password" name="password" placeholder="e.g 1234"  value={password} onChange={(e) => setPassword(e.target.value)}/>
         </label>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" /> 
      </form>
 
-      <button onClick={toggleSignUp}> {signup ? "LOGIN" : "SIGNUP"} </button>
+      <Button variant="outlined" onClick={toggleSignUp}> {signup ? "LOGIN" : "SIGNUP"} </Button>
          </>
 
 
@@ -55,3 +64,4 @@ function Auth(props) {
 
 
 export default connect (null , {signUp, login})(Auth);
+

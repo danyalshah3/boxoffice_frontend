@@ -5,11 +5,18 @@ import {clearMovie} from '../redux/actionCreators'
 import {useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import Nav from './Nav'
-import Cart from './Cart'
+
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Rating from '@mui/material/Rating';
+import Typography from '@mui/material/Typography';
+
+
 
 
 function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, runtime, director, writer, actor, plot, language, awards, boxOffice, trailer, clearMovie, id}) {
 
+  
     const routeId = useParams().id
     useEffect(() => {
         getMovie(routeId)
@@ -26,7 +33,8 @@ function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, run
     <p  className="date">Date: {released}</p>
     <p  className="genre">Genre: {genre}</p>
     <img  className="img" src={posterImg} alt={title}/>
-    <p  className="rating">ImdbRating: {imdbRating}</p>
+    <Typography component="legend">ImdbRating: {imdbRating}</Typography>
+    <Rating name="customized-10"  value={imdbRating}  max={10} readOnly />
     <p  className="time">Runtime: {runtime}</p>
     <p className="director">Director: {director}</p>
     <p className="writer">Writer: {writer}</p>
@@ -36,9 +44,11 @@ function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, run
     <p  className="awards">Awards: {awards}</p>
     <p  className="collection">Collection: {boxOffice}</p>
   <p><a href={trailer} target="blank">Watch trailer Here</a></p>
+     
+     
 
     {/* <Nav3/> */}
-  <Cart/>
+  {/* <Cart/> */}
    
 
 

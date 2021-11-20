@@ -70,39 +70,20 @@ export const login = (user) => {
       }
   }
 
-// export const Logout = () => ({type: "LOGOUT"})
-// export const fillCart = (user) => {
-//     return dispatch => fetch("http://localhost:3000/users", {
-//         method: 'POST', // or 'PUT'
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(user),
-//       })
-//       .then(res => res.json())
-//     .then(response => {
-//       dispatch({type: "FILL_CART", payload: response.transactions})
-//     })
-//   }
-
-
-//   export const like = (userId, likeId) => {
-//       console.log("hi")
-//     return dispatch => fetch(`http://localhost:3000/users`, {
-//       method: 'POST', // or 'PUT'
+//   export const addTransation = (transation, userId) => {
+//     return dispatch => fetch(`http://localhost:3000/user/${userId}/transations`, {
+//       method: "POST",
 //       headers: {
 //         'Content-Type': 'application/json',
+//         'Authorization': localStorage.token
 //       },
-//       body: JSON.stringify({
-//           user_id: userId,
-//           like_id: likeId
-//       }),
+//       body: JSON.stringify(transation)
 //     })
-//     .then(res => res.json())
-//     .then(console.log)
-    // .then(response => {
-    //     localStorage.token = response.token
-    //     dispatch({type: "LIKE", payload: response.user})
-    //   })
+//     .then(res => {
+//       if (res.ok) {
+//         res.json().then(transation => dispatch({type: "RENT_IT", payload: transation))
+//       } else {
+//         res.json().then(res => alert(res.errors))
+//       }
+//     })
 //   }
-

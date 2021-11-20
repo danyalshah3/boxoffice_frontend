@@ -9,29 +9,38 @@ import {useEffect} from 'react'
 import {autoLogin} from './redux/actionCreators'
 import Home from './components/Home'
 import Welcome from './components/Welcome'
-import Cart from './components/Cart'
+import Transations from './containers/Transations'
+import {useState} from 'react'
+
 
 
 
 function App({user, autoLogin}) {
+
+
+//  const [cartItems, setCartItems] = useState([])
   
   useEffect(() => {
     localStorage.token && autoLogin()
-    // return Logout
   }, [autoLogin])
+
+
+ 
   
   return (
+  
     <>
     {user.username ?
       <Switch>
       <Route path="/movies/:id"><MovieShow/></Route>
       <Route path="/movies"><MovieIndex /></Route>
       <Route path="/home"><Home/></Route>
-      <Route path="transations"><Cart/></Route>
+      {/* <Route path="/transations"><Cart/></Route> */}
       </Switch> :
       <Welcome/>
       
     }
+    
     
      </>
     

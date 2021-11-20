@@ -13,7 +13,8 @@ const initialList = {
     awards: "",
     boxOffice: "null",
     trailer: "",
-    id: null
+    id: null,
+    // transations: []
   
 }
 
@@ -52,8 +53,8 @@ export default function reducer(state=initialState, action) {
             return {...state, user: action.payload}
             case "LOGOUT":
                 return {...state, user: initialUser}
-        // case "FILL_CART":
-        //     return {...state, myCart: action.payload}  
+        // case "RENT_IT":
+        //     return {...state, transations: action.payload}  
             case "LIKE":
                 return {...state, likes: state.likes + 1 }   
                 case "DISLIKE":
