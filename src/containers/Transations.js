@@ -1,13 +1,24 @@
 import { connect } from "react-redux";
 import TransationDisplay from "../components/TransationDisplay";
 import Nav from '../components/Nav'
+import {useEffect} from 'react'
+import { addTransation } from "../redux/actionCreators";
 
 
-function Transations({transations}){
+function Transations({props}){
+
+    useEffect(() => addTransation(), [addTransation])
+
+
+
+// const handleClick = (e) => {
+//     console.log(e)
+// }
+
 
     return <div className="transations">
         <Nav/>
-    {transations.map(transation => <TransationDisplay  {...transation} key={transation.id}/>)}
+    {props.transations.map(transation => <TransationDisplay  {...transation} key={transation.id}/>)}
     </div>
 
 }

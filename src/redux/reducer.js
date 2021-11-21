@@ -19,7 +19,8 @@ const initialList = {
 }
 
 const initialUser= {
-    username: ""
+    username: "",
+    transations: []
 
 }
 
@@ -32,9 +33,9 @@ const initialUser= {
 const initialState = {
     movies: [],
     selectedMovie: initialList,
-    user: initialUser,
+    user: initialUser
     // myCart: initialCart,
-    likes: 0
+    
 }
 
 // title, released, genre, posterImg, imdbRating, runtime, director, writer, actor, plot, language, awards, boxOffice, trailer
@@ -53,8 +54,8 @@ export default function reducer(state=initialState, action) {
             return {...state, user: action.payload}
             case "LOGOUT":
                 return {...state, user: initialUser}
-        // case "RENT_IT":
-        //     return {...state, transations: action.payload}  
+        case "ADD_TRANSATION":
+            return {...state, user: {...state.user, transations: [action.payload, ...state.user.transations]}}
             case "LIKE":
                 return {...state, likes: state.likes + 1 }   
                 case "DISLIKE":

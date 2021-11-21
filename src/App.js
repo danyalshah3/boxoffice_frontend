@@ -38,6 +38,7 @@ function App({user, autoLogin}) {
       {/* <Route path="/transations"><Cart/></Route> */}
       </Switch> :
       <Welcome/>
+     
       
     }
     

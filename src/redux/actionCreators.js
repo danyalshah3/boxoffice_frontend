@@ -24,13 +24,22 @@ export const signUp = (user) => {
     },
     body: JSON.stringify(user),
   })
-  .then(res => res.json())
-//   .then(console.log)
-  .then(response => {
-      localStorage.token = response.token
-      dispatch({type: "SET_USER", payload: response.user})
-    })
-}
+  .then(res => {
+    if (res.ok) {
+        res.json()
+       .then(response => {
+       localStorage.token = response.token
+     //   console.log(response)
+       dispatch({type: "SET_USER", payload: response.user})
+       })
+     } else {
+         res.json()
+         .then(res => alert(res.errors))
+       }
+     })
+   }
+
+  
 //   .then(user =>  dispatch({type: "SET_USER", payload: user}))
 
 export const login = (user) => {
@@ -41,10 +50,19 @@ export const login = (user) => {
       },
       body: JSON.stringify(user),
     })
-    .then(res => res.json())
-    .then(response => {
+    .then(res => {
+        // console.log(res)
+        if (res.ok) {
+           res.json()
+          .then(response => {
           localStorage.token = response.token
+        //   console.log(response)
           dispatch({type: "SET_USER", payload: response.user})
+          })
+        } else {
+            res.json()
+            .then(res => alert(res.errors))
+          }
         })
       }
 
@@ -70,20 +88,21 @@ export const login = (user) => {
       }
   }
 
-//   export const addTransation = (transation, userId) => {
-//     return dispatch => fetch(`http://localhost:3000/user/${userId}/transations`, {
-//       method: "POST",
-//       headers: {
-//         'Content-Type': 'application/json',
-//         'Authorization': localStorage.token
-//       },
-//       body: JSON.stringify(transation)
-//     })
-//     .then(res => {
-//       if (res.ok) {
-//         res.json().then(transation => dispatch({type: "RENT_IT", payload: transation))
-//       } else {
-//         res.json().then(res => alert(res.errors))
-//       }
-//     })
-//   }
+  export const addTransation = (transation, userId) => {
+    return dispatch => fetch(`http://localhost:3000/user/${userId}/transations`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.token
+      },
+      body: JSON.stringify(transation)
+    })
+    .then(res => {
+        // console.log(res)
+      if (res.ok) {
+        res.json().then(transation => dispatch({type: "ADD_TRANSATION", payload: transation}))
+      } else {
+        res.json().then(res => alert(res.errors))
+      }
+    })
+  }
