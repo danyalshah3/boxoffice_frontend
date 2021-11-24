@@ -10,10 +10,11 @@ import * as React from 'react';
 
    
     return <div className="welcome">   
-     <h1>BOX OFFICE</h1>
+          <strong><h1>BOX OFFICE</h1></strong>
+          <br></br>
 
-     <h3>'Hub of Entertainment'</h3>
-
+         <h3 >'Hub of Entertainment'</h3>
+  <br></br>
 
      <Auth/>
      </div>

@@ -1,13 +1,27 @@
 import {Link} from 'react-router-dom'
-// import Like from './Like'
+import '../scss/movie.scss'
+import * as React from 'react';
+import Button from '@mui/material/Button';
 
 
 
 export default function MoviePage({id, posterImg, title}){
       
-    return <div className="container-img" >
-     <Link to={`/movies/${id}`}><img src={posterImg}  alt={title}/></Link><button>Rent(HD)</button><br></br>
+    return <div className="movie-desc">
+     <div className="container-img">
+    <div  className="info_section">
+    <div className="movie-header">
+    <div className="ui three column grid">
+        <div className="link">
+     <Link to={`/movies/${id}`}><img className="locandina" src={posterImg}  alt={title}/><br></br></Link>
+     <Button variant="contained">Rent(HD)</Button><br></br>
      
-
+    </div>
      </div>
+     </div>
+     </div>
+     </div>
+     </div>
+    
+   
 }

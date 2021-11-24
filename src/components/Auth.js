@@ -19,6 +19,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { toast } from 'react-toastify'
+
 
 function Auth(props){
  
@@ -58,7 +60,7 @@ function Auth(props){
    
    
    return <>
-        {signup ? <h1>SIGN UP</h1> : <h1>LOGIN</h1>}
+        {signup ? <h2>SIGN UP</h2> : <h2>LOGIN</h2>}
         <ThemeProvider theme={theme}>
           <Container component="main" maxWidth="xs">
             <CssBaseline />
@@ -73,12 +75,11 @@ function Auth(props){
               <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
                 <LockOutlinedIcon />
               </Avatar>
-              <Typography component="h1" variant="h5">
-               
+              <Typography component="h1" variant="h5"> 
               </Typography>
               <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                   
-                  {signup &&<TextField
+                {signup &&<TextField
                 type="text" name="name" placeholder="Type your Name"  value={name} onChange={(e) => setName(e.target.value)}
                 margin="normal"
                 required
@@ -136,7 +137,7 @@ function Auth(props){
             {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
           </Container>
         </ThemeProvider>
-         <Button variant="outlined" onClick={toggleSignUp}> {signup ? "LOGIN" : "SIGNUP"} </Button>
+         <Button variant="contained" color="success" onClick={toggleSignUp}> {signup ? "LOGIN" : "SIGNUP"} </Button>
 
       
         </>

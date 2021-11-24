@@ -21,10 +21,9 @@ function MovieIndex({getMovies, movies}) {
 
     return <div className="fullpage">
     <Nav/>
-      
         {movies.map(movie => <MoviePage {...movie} key={movie.id} />)}
-        
-    </div>
+        </div>
+ 
 
     
 

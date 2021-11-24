@@ -60,7 +60,7 @@ function  Nav({Logout}) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          <Button className="button" ><NavLink to={"/home"}><h3>Home</h3></NavLink></Button>
+          <Button className="button" className="glow-on-hover" ><NavLink to={"/home"}><h3>Home</h3></NavLink></Button>
           </Typography>
           {auth && (
             <div>
@@ -89,9 +89,9 @@ function  Nav({Logout}) {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}><Button  variant="contained" color="success" size="small"><NavLink  to={`/movies`}><h5>See All Movies</h5></NavLink></Button></MenuItem>
+                <MenuItem onClick={handleClose}><Button className="glow-on-hover" variant="contained" color="success" size="small"><NavLink  to={`/movies`}><h5>See All Movies</h5></NavLink></Button></MenuItem>
                 <MenuItem onClick={handleClose}></MenuItem>
-                <MenuItem onClick={handleClose}><Button variant="contained" color="success" size="small"><NavLink to={"/users/transations"}><h5>Movies</h5></NavLink></Button></MenuItem>
+                <MenuItem onClick={handleClose}><Button className="glow-on-hover" variant="contained" color="success" size="small"><NavLink to={"/users/transations"}><h5>Rentals</h5></NavLink></Button></MenuItem>
                 <MenuItem onClick={handleClose}><Button variant="contained" color="error"  size="small" onClick={Logout}><h5>Logout</h5></Button> </MenuItem>
               </Menu>
             </div>
@@ -102,6 +102,7 @@ function  Nav({Logout}) {
   );
 }
 
+export default connect(null, {Logout})(Nav)
 
 // const StyledBadge = styled(Badge)(({ theme }) => ({
 //     '& .MuiBadge-badge': {
@@ -154,7 +155,6 @@ function  Nav({Logout}) {
     //     </nav>
     // }
  
-    export default connect(null, {Logout})(Nav)
  
  
        
