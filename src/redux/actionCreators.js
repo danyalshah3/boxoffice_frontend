@@ -1,3 +1,5 @@
+import { toast } from "react-toastify"
+
 export const getMovies = () => {
   
     return dispatch => fetch("http://localhost:3000/movies")
@@ -80,11 +82,13 @@ export const login = (user) => {
       dispatch({type: "SET_USER", payload: response.user})
     })
   }
-
+  
+   toast.configure()
   export const Logout = () => {
       return dispatch => {
           localStorage.clear()
           dispatch({type: "LOGOUT"})
+          toast.success('LOGGED OUT Successfully', {position: toast.POSITION.TOP_CENTER})
       }
   }
 

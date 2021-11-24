@@ -19,9 +19,10 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import 'react-toastify/dist/ReactToastify.css'
 import { toast } from 'react-toastify'
 
-
+toast.configure()
 function Auth(props){
  
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -55,6 +56,7 @@ function Auth(props){
        e.preventDefault()
        { signup ? props.signUp({name, username, creditcardnum, password}) : props.login({username, password})}
        history.push("/Home")
+       toast.success('YOU ARE LOGGED IN', {position: toast.POSITION.TOP_CENTER})
    }
 
    
@@ -137,7 +139,7 @@ function Auth(props){
             {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
           </Container>
         </ThemeProvider>
-         <Button variant="contained" color="success" onClick={toggleSignUp}> {signup ? "LOGIN" : "SIGNUP"} </Button>
+         <Button variant="contained" color="success" onClick={toggleSignUp}> {signup ? 'LOGIN' : 'SIGNUP'} </Button>
 
       
         </>
