@@ -1,4 +1,6 @@
 import { toast } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css'
+
 
 export const getMovies = () => {
   
@@ -14,6 +16,7 @@ export const getMovie = (id) => {
     .then(res => res.json())
     .then(movie => dispatch({type: 'GET_MOVIE', payload: movie}))
 }
+    
 
 export const clearMovie = () =>  ({type: "CLEAR_MOVIE"})
 
@@ -42,7 +45,6 @@ export const signUp = (user) => {
    }
 
   
-//   .then(user =>  dispatch({type: "SET_USER", payload: user}))
 
 export const login = (user) => {
     return dispatch => fetch("http://localhost:3000/sessions", {
@@ -60,6 +62,7 @@ export const login = (user) => {
           localStorage.token = response.token
         //   console.log(response)
           dispatch({type: "SET_USER", payload: response.user})
+
           })
         } else {
             res.json()
@@ -78,11 +81,13 @@ export const login = (user) => {
     })
     .then(res => res.json())
     .then(response => {
+        // console.log(response.user.id)
+        localStorage.user_id = response.user.id
       localStorage.token = response.token
       dispatch({type: "SET_USER", payload: response.user})
     })
   }
-  
+
    toast.configure()
   export const Logout = () => {
       return dispatch => {
@@ -93,16 +98,18 @@ export const login = (user) => {
   }
 
   export const addTransation = (transation, userId) => {
-    return dispatch => fetch(`http://localhost:3000/user/${userId}/transations`, {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': localStorage.token
-      },
-      body: JSON.stringify(transation)
+      const userId1 = parseInt(userId)
+    //   console.log(transation, userId1)
+      return dispatch => fetch(`http://localhost:3000/user/${userId1}/transations`, {
+          method: "POST",
+          headers: {
+              'Content-Type': 'application/json',
+              'Authorization': localStorage.token
+            },
+            body: JSON.stringify(transation)
     })
     .then(res => {
-        // console.log(res)
+        //  console.log(res)
       if (res.ok) {
         res.json().then(transation => dispatch({type: "ADD_TRANSATION", payload: transation}))
       } else {

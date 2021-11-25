@@ -56,7 +56,6 @@ function Auth(props){
        e.preventDefault()
        { signup ? props.signUp({name, username, creditcardnum, password}) : props.login({username, password})}
        history.push("/Home")
-       toast.success('YOU ARE LOGGED IN', {position: toast.POSITION.TOP_CENTER})
    }
 
    

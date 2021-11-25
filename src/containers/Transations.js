@@ -1,18 +1,26 @@
 import { connect } from "react-redux";
 import TransationDisplay from "../components/TransationDisplay";
 import Nav from '../components/Nav'
+import {useState} from 'react'
 import {useEffect} from 'react'
 import { addTransation } from "../redux/actionCreators";
+import {useParams} from 'react-router-dom'
 
 
-function Transations({props}){
+function Transations(props){
 
-    useEffect(() => addTransation(), [addTransation])
 
+    // const routeId = useParams().id
+    // console.log(routeId)
+
+
+    // useEffect(() => addTransation(), [addTransation])
+  const[transations, setTransations] = useState([])
 
 
 // const handleClick = (e) => {
-//     console.log(e)
+//     console.log("put")
+
 // }
 
 
@@ -28,7 +36,7 @@ const mapStateToProps = (state) =>  ({transations: state.user.transations})
 
 
 
-export default connect(mapStateToProps)(Transations);
+export default connect(mapStateToProps, {addTransation})(Transations);
 
 // function Transations(){
 // 	return <div>

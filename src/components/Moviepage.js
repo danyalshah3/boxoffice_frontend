@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 
 
 export default function MoviePage({id, posterImg, title}){
+
       
     return <div className="movie-desc">
      <div className="container-img">
@@ -14,7 +15,6 @@ export default function MoviePage({id, posterImg, title}){
     <div className="ui three column grid">
         <div className="link">
      <Link to={`/movies/${id}`}><img className="locandina" src={posterImg}  alt={title}/><br></br></Link>
-     <Button variant="contained">Rent(HD)</Button><br></br>
      
     </div>
      </div>

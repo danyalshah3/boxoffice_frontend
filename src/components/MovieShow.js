@@ -1,11 +1,13 @@
 import {useParams} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {getMovie} from '../redux/actionCreators'
+import {addTransation, getMovie} from '../redux/actionCreators'
 import {clearMovie} from '../redux/actionCreators'
 import {useEffect} from 'react'
+import {useState} from 'react'
 import {Link} from 'react-router-dom'
 import Nav from './Nav'
 import '../scss/movieshow.scss'
+// import TransationDisplay from "../components/TransationDisplay";
 // import Toast from 'react-bootstrap/Toast'
 // import ToastHeader from 'react-bootstrap/ToastHeader'
 
@@ -13,13 +15,31 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
+import Button from './Button'
 
 
 
 
 
-function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, runtime, director, writer, actor, plot, language, awards, boxOffice, trailer, clearMovie, id}) {
+function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, runtime, director, writer, actor, plot, language, awards, boxOffice, clearMovie, id, transations}) {
 
+
+
+    // const [transation, setTransation]
+    const handleClick = () => {
+         // console.log(routeId)
+        fetch(`http://localhost:3000/movies/${id}`)  
+      .then(res => res.json())
+      .then(response => {
+          const userId1 = parseInt(localStorage.user_id)
+        addTransation(response, userId1)
+        console.log(response, userId1)
+      })
+    }
+
+//   <div className="transations">
+//      {transations.map(transation => <TransationDisplay  {...transation} key={transation.id}/>)}
+//     </div>
   
     const routeId = useParams().id
     useEffect(() => {
@@ -44,19 +64,21 @@ function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, run
     <Typography component="legend" className="title2"><h2>ImdbRating: &nbsp;{imdbRating}</h2></Typography>
     <Rating name="customized-10"  value={imdbRating}  max={10} readOnly /><br></br>
     <br></br>
-    <p  className="time">Runtime: &nbsp;<h3>{runtime}</h3></p><br></br>
-    <p className="director">Director: &nbsp;<h3>{director}</h3></p><br></br>
-    <p className="writer">Writer: &nbsp;<h3>{writer}</h3></p><br></br>
-    <p  className="actor">Actors: &nbsp;<h3>{actor}</h3></p><br></br>
-    <p  className="plot">Plot: &nbsp;<h3>{plot}</h3></p><br></br>
-    <p  className="language">Language: &nbsp;<h3>{language}</h3></p><br></br>
-    <p  className="awards">Awards: &nbsp;<h3>{awards}</h3></p><br></br>
-    <p  className="">Collection: &nbsp;<h3>{boxOffice}</h3></p><br></br>
+    <h3 className="time">Runtime: &nbsp;{runtime}</h3><br></br>
+    <h3 className="director">Director: &nbsp;{director}</h3><br></br>
+    <h3 className="writer">Writer: &nbsp;{writer}</h3><br></br>
+    <h3  className="actor">Actors: &nbsp;{actor}</h3><br></br>
+    <h3 className="plot">Plot: &nbsp;{plot}</h3><br></br>
+    <h3 className="language">Language: &nbsp;{language}</h3><br></br>
+    <h3  className="awards">Awards: &nbsp;{awards}</h3><br></br>
+    <h3  className="">Collection: &nbsp;{boxOffice}</h3><br></br>
     </div>
     
 
    <br></br>
-
+   {/* <Button /> */}
+<button onClick={() => handleClick()}>Rent(HD) </button>
+         
 
 
    <span className="arrows">
@@ -76,6 +98,7 @@ return id ? loadedPage() : spinner()
 
 const mapStateToProps = (state) => {
     return {...state.selectedMovie}
+
 }
 
 export default connect(mapStateToProps, {getMovie, clearMovie})(MovieShow);
