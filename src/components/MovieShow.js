@@ -1,6 +1,7 @@
 import {useParams} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {addTransation, getMovie} from '../redux/actionCreators'
+import { getMovie } from '../redux/actionCreators'
+import {addTransation} from '../redux/actionCreators'
 import {clearMovie} from '../redux/actionCreators'
 import {useEffect} from 'react'
 import {useState} from 'react'
@@ -10,36 +11,33 @@ import '../scss/movieshow.scss'
 // import TransationDisplay from "../components/TransationDisplay";
 // import Toast from 'react-bootstrap/Toast'
 // import ToastHeader from 'react-bootstrap/ToastHeader'
+// import Box from '@mui/material/Box';
+// import Button from './Button'
 
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
-import Button from './Button'
 
 
 
 
 
-function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, runtime, director, writer, actor, plot, language, awards, boxOffice, clearMovie, id, transations}) {
+function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, runtime, director, writer, actor, plot, language, awards, boxOffice, clearMovie, id, addTransation}) {
 
 
-
-    // const [transation, setTransation]
+  
+    const [addtransation, setAddTransation] = useState([])
+    
     const handleClick = () => {
-         // console.log(routeId)
         fetch(`http://localhost:3000/movies/${id}`)  
       .then(res => res.json())
       .then(response => {
           const userId1 = parseInt(localStorage.user_id)
-        addTransation(response, userId1)
-        console.log(response, userId1)
+        setAddTransation(addTransation(response, userId1))
+        // console.log(response, userId1)
       })
     }
 
-//   <div className="transations">
-//      {transations.map(transation => <TransationDisplay  {...transation} key={transation.id}/>)}
-//     </div>
   
     const routeId = useParams().id
     useEffect(() => {
@@ -62,7 +60,7 @@ function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, run
     <p  className="title2">Date: &nbsp;{released}</p><br></br>
     <p  className="genre">Genre: &nbsp;{genre}</p><br></br>
     <Typography component="legend" className="title2"><h2>ImdbRating: &nbsp;{imdbRating}</h2></Typography>
-    <Rating name="customized-10"  value={imdbRating}  max={10} readOnly /><br></br>
+    <Rating name="customized-10"  value={imdbRating} max={10} readOnly /><br></br>
     <br></br>
     <h3 className="time">Runtime: &nbsp;{runtime}</h3><br></br>
     <h3 className="director">Director: &nbsp;{director}</h3><br></br>
@@ -101,4 +99,4 @@ const mapStateToProps = (state) => {
 
 }
 
-export default connect(mapStateToProps, {getMovie, clearMovie})(MovieShow);
+export default connect(mapStateToProps, {getMovie, clearMovie, addTransation})(MovieShow);

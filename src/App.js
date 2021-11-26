@@ -9,8 +9,8 @@ import {useEffect} from 'react'
 import {autoLogin} from './redux/actionCreators'
 import Home from './components/Home'
 import Welcome from './components/Welcome'
-import Transations from './containers/Transations'
-import {useState} from 'react'
+// import Transations from './containers/Transations'
+// import {useState} from 'react'
 
 
 

@@ -1,7 +1,7 @@
  import Nav from './Nav'
  import '../CSS/Home.css'
- import Toast from 'react-bootstrap/Toast';
-import Container from 'react-bootstrap/Container';
+//  import Toast from 'react-bootstrap/Toast';
+// import Container from 'react-bootstrap/Container';
 
 export default function Home () {
 

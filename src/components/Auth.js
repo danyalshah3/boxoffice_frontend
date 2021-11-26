@@ -53,7 +53,7 @@ function Auth(props){
    
 
    const handleSubmit = (e) => {
-       e.preventDefault()
+       e.preventDefault();
        { signup ? props.signUp({name, username, creditcardnum, password}) : props.login({username, password})}
        history.push("/Home")
    }

@@ -100,7 +100,7 @@ export const login = (user) => {
   export const addTransation = (transation, userId) => {
       const userId1 = parseInt(userId)
     //   console.log(transation, userId1)
-      return dispatch => fetch(`http://localhost:3000/user/${userId1}/transations`, {
+      return dispatch => fetch(`http://localhost:3000/users/${userId1}/transations`, {
           method: "POST",
           headers: {
               'Content-Type': 'application/json',
