@@ -1,42 +1,53 @@
-// import { connect } from "react-redux";
-// import TransationDisplay from "../components/TransationDisplay";
-// import Nav from '../components/Nav'
-// import {useState} from 'react'
-// import {useEffect} from 'react'
-// import { addTransation } from "../redux/actionCreators";
-// import {useParams} from 'react-router-dom'
+import { connect } from "react-redux";
+import TransationDisplay from "../components/TransationDisplay";
+import Nav from '../components/Nav'
+import {useEffect} from 'react'
+import { handleUserTransation } from "../redux/actionCreators";
 
 
-// function Transations(props){
+
+function Transations({transations}){
+
+    console.log(transations)
+
+   useEffect(() => handleUserTransation(), [handleUserTransation])
 
 
-    // const routeId = useParams().id
-    // console.log(routeId)
+   
+   
+   return <div className="transations">
+        <Nav/>
+    {transations.map(transation => <TransationDisplay  {...transation} key={transation.id}/>)}
+    </div>
+
+}
 
 
-    // useEffect(() => addTransation(), [addTransation])
-//   const[transations, setTransations] = useState([])
+const mapStateToProps = (state) =>  {
+    return {transations: state.user.transations}
+}
+
+
+
+export default connect(mapStateToProps, {handleUserTransation})(Transations);
+
+
+
+
 
 
 // const handleClick = (e) => {
 //     console.log("put")
-
+ 
+    //     const compononentWillMount = (userId) => {
+    //         const userId1 = parseInt(userId)
+    //         fetch(`http://localhost:3000/${userId1}/transations`)
+    //         .then(res => {
+    //             console.log(res)
+    //         })
+    // }
+ 
 // }
-
-
-//     return <div className="transations">
-//         <Nav/>
-//     {props.transations.map(transation => <TransationDisplay  {...transation} key={transation.id}/>)}
-//     </div>
-
-// }
-
-
-// const mapStateToProps = (state) =>  ({transations: state.user.transations})
-
-
-
-// export default connect(mapStateToProps, {addTransation})(Transations);
 
 // function Transations(){
 // 	return <div>

@@ -91,7 +91,7 @@ function  Nav({Logout}) {
               >
                 <MenuItem onClick={handleClose}><Button className="glow-on-hover" variant="contained" color="success" size="small"><NavLink  to={`/movies`}><h5>See All Movies</h5></NavLink></Button></MenuItem>
                 <MenuItem onClick={handleClose}></MenuItem>
-                <MenuItem onClick={handleClose}><Button className="glow-on-hover" variant="contained" color="success" size="small"><NavLink to={"/users/transations"}><h5>Rentals</h5></NavLink></Button></MenuItem>
+                <MenuItem onClick={handleClose}><Button className="glow-on-hover" variant="contained" color="success" size="small"><NavLink to={"/transations"}><h5>Rentals</h5></NavLink></Button></MenuItem>
                 <MenuItem onClick={handleClose}><Button variant="contained" color="error"  size="small" onClick={Logout}><h5>Logout</h5></Button> </MenuItem>
               </Menu>
             </div>

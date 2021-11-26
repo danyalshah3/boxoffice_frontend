@@ -33,6 +33,7 @@ function MovieIndex({getMovies, movies}) {
 }
 
 const mapStateToProps = (state) => {
+    // console.log(state)
   return {movies: state.movies}  
 }
 export default connect(mapStateToProps, {getMovies})(MovieIndex);

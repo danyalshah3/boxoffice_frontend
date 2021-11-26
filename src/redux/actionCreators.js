@@ -99,14 +99,17 @@ export const login = (user) => {
 
   export const addTransation = (transation, userId) => {
       const userId1 = parseInt(userId)
-    //   console.log(transation, userId1)
-      return dispatch => fetch(`http://localhost:3000/users/${userId1}/transations`, {
+      console.log(transation)
+      return dispatch => fetch(`http://localhost:3000/transations`, {
           method: "POST",
           headers: {
               'Content-Type': 'application/json',
               'Authorization': localStorage.token
             },
-            body: JSON.stringify(transation)
+            body: JSON.stringify({
+                movie_id: transation,
+                user_id: userId1
+            })
     })
     .then(res => {
         //  console.log(res)
@@ -117,3 +120,12 @@ export const login = (user) => {
       }
     })
   }
+
+
+  export const handleUserTransation = (userId) => {
+    const userId1 = parseInt(userId)
+    fetch(`http://localhost:3000//users/${userId1}`)
+    .then(res => {
+        console.log(res)
+    })
+}

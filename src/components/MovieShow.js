@@ -8,6 +8,7 @@ import {useState} from 'react'
 import {Link} from 'react-router-dom'
 import Nav from './Nav'
 import '../scss/movieshow.scss'
+import Transations from '../containers/Transations'
 // import TransationDisplay from "../components/TransationDisplay";
 // import Toast from 'react-bootstrap/Toast'
 // import ToastHeader from 'react-bootstrap/ToastHeader'
@@ -26,17 +27,27 @@ function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, run
 
 
   
-    const [addtransation, setAddTransation] = useState([])
+    const [transations, settransations] = useState([])
     
     const handleClick = () => {
         fetch(`http://localhost:3000/movies/${id}`)  
       .then(res => res.json())
       .then(response => {
+        //   console.log(response.id)
           const userId1 = parseInt(localStorage.user_id)
-        setAddTransation(addTransation(response, userId1))
+        settransations(addTransation(response.id, userId1))
         // console.log(response, userId1)
       })
     }
+
+
+    // const handleTransPage = (userId) => {
+    //     const userId1 = parseInt(userId)
+    //     fetch(`http://localhost:3000/users/${userId1}`)
+    //     .then(res => {
+    //         console.log(res)
+    //     })
+    // }    
 
   
     const routeId = useParams().id
@@ -75,7 +86,8 @@ function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, run
 
    <br></br>
    {/* <Button /> */}
-<button onClick={() => handleClick()}>Rent(HD) </button>
+<Link to="/transations"><button onClick={() => handleClick()}>Rent(HD)</button></Link>
+
          
 
 
