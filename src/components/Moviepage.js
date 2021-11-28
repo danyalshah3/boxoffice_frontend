@@ -15,6 +15,7 @@ export default function MoviePage({id, posterImg, title}){
     <div className="ui three column grid">
         <div className="link">
      <Link to={`/movies/${id}`}><img className="locandina" src={posterImg}  alt={title}/><br></br></Link>
+     <p><h4>{title}</h4></p>
      
     </div>
      </div>

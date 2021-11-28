@@ -6,12 +6,12 @@ import {Switch, Route} from 'react-router-dom'
 import { connect } from 'react-redux';
 import Transations from './containers/Transations';
 
+
 import {useEffect} from 'react'
 import {autoLogin} from './redux/actionCreators'
 import Home from './components/Home'
 import Welcome from './components/Welcome'
-// import Transations from './containers/Transations'
-// import {useState} from 'react'
+
 
 
 

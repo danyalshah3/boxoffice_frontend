@@ -5,6 +5,7 @@ import {login} from '../redux/actionCreators'
 import {connect} from 'react-redux'
 import {useHistory} from 'react-router-dom'
 
+
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -80,7 +81,7 @@ function Auth(props){
               </Typography>
               <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                   
-                {signup &&<TextField
+                {signup && <TextField
                 type="text" name="name" placeholder="Type your Name"  value={name} onChange={(e) => setName(e.target.value)}
                 margin="normal"
                 required

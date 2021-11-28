@@ -3,6 +3,7 @@ import {getMovies} from '../redux/actionCreators'
 import {connect} from  'react-redux'
 import MoviePage from '../components/Moviepage.js'
 import Nav from '../components/Nav'
+import { SearchForm } from '../components/SearchForm'
 
 
 
@@ -15,6 +16,7 @@ function MovieIndex({getMovies, movies}) {
 
 
     return <div className="fullpage">
+    <SearchForm/>
     <Nav/>
         {movies.map(movie => <MoviePage {...movie} key={movie.id} />)}
         </div>

@@ -8,12 +8,6 @@ import {useState} from 'react'
 import {Link} from 'react-router-dom'
 import Nav from './Nav'
 import '../scss/movieshow.scss'
-import Transations from '../containers/Transations'
-// import TransationDisplay from "../components/TransationDisplay";
-// import Toast from 'react-bootstrap/Toast'
-// import ToastHeader from 'react-bootstrap/ToastHeader'
-// import Box from '@mui/material/Box';
-// import Button from './Button'
 
 import * as React from 'react';
 import Rating from '@mui/material/Rating';
@@ -76,7 +70,7 @@ function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, run
 
    <br></br>
    {/* <Button /> */}
-<Link to="/transations"><button onClick={() => handleClick()}>Rent(HD)</button></Link>
+<button className="glow-on-hover" onClick={() => handleClick()}>Rent(HD)</button>
 
          
 

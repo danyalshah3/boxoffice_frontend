@@ -39,6 +39,19 @@ h2 {
   font-size: 10px;
 }
 
+
+::-webkit-input-placeholder { /* Edge */
+  color: red;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: red;
+}
+
+::placeholder {
+  color: red;
+}
+
 h5 {
   color: white;
   text-shadow: 2px 2px 5px black;
