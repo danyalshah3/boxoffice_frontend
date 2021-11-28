@@ -4,6 +4,7 @@ import MovieIndex from './containers/MovieIndex'
 import MovieShow from './components/MovieShow'
 import {Switch, Route} from 'react-router-dom'
 import { connect } from 'react-redux';
+import Transations from './containers/Transations';
 
 import {useEffect} from 'react'
 import {autoLogin} from './redux/actionCreators'
@@ -35,6 +36,8 @@ function App({user, autoLogin}) {
       <Route path="/movies/:id"><MovieShow/></Route>
       <Route path="/movies"><MovieIndex /></Route>
       <Route path="/home"><Home/></Route>
+      <Transations transations={user}/>
+      {/* <Route path="/transations"><Transations/></Route> */}
       {/* <Route path="/transations"><Cart/></Route> */}
       </Switch> :
       <Welcome/>
@@ -51,6 +54,7 @@ function App({user, autoLogin}) {
 }
 
 const mapStateToProps = (state) => {
+  // console.log(state.user)
   return {user: state.user}
 }
 

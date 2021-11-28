@@ -81,7 +81,6 @@ export const login = (user) => {
     })
     .then(res => res.json())
     .then(response => {
-        // console.log(response.user.id)
         localStorage.user_id = response.user.id
       localStorage.token = response.token
       dispatch({type: "SET_USER", payload: response.user})
@@ -99,7 +98,7 @@ export const login = (user) => {
 
   export const addTransation = (transation, userId) => {
       const userId1 = parseInt(userId)
-      console.log(transation)
+    //   console.log(transation)
       return dispatch => fetch(`http://localhost:3000/transations`, {
           method: "POST",
           headers: {
@@ -122,10 +121,11 @@ export const login = (user) => {
   }
 
 
-  export const handleUserTransation = (userId) => {
-    const userId1 = parseInt(userId)
-    fetch(`http://localhost:3000//users/${userId1}`)
-    .then(res => {
-        console.log(res)
-    })
-}
+//   export const handleUserTransation = (userId) => {
+//     const userId1 = parseInt(userId)
+//     fetch(`http://localhost:3000//users/${userId1}`)
+//     .then(res => res.json())
+//     .then(transation => {
+//         // console.log(transation)
+//     })
+// }

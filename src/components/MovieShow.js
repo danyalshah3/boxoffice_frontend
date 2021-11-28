@@ -28,26 +28,17 @@ function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, run
 
   
     const [transations, settransations] = useState([])
-    
+    //   console.log()
     const handleClick = () => {
         fetch(`http://localhost:3000/movies/${id}`)  
       .then(res => res.json())
       .then(response => {
-        //   console.log(response.id)
+        //   console.log(response)
           const userId1 = parseInt(localStorage.user_id)
         settransations(addTransation(response.id, userId1))
-        // console.log(response, userId1)
+        // console.log(response.id, userId1)
       })
     }
-
-
-    // const handleTransPage = (userId) => {
-    //     const userId1 = parseInt(userId)
-    //     fetch(`http://localhost:3000/users/${userId1}`)
-    //     .then(res => {
-    //         console.log(res)
-    //     })
-    // }    
 
   
     const routeId = useParams().id
@@ -60,8 +51,7 @@ function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, run
     const loadedPage = () =>
     <div className="showUs">
   
-    {/* <div className="container"> */}
-    <Nav/>
+      <Nav/>
   
 
     
