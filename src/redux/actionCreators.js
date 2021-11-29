@@ -1,40 +1,40 @@
 import { toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css'
 
-function graphQl(query) {
-return fetch('http://localhost:3000/graphql', {
-  method: 'POST', // or 'PUT'
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({query}),
-})
-}
-
-export const getMovies = () => {
-  
-    return dispatch =>  graphQl(`
-          {
-            movies {
-                title
-                posterImg
-            }
-          }
-        `)
-    
-    .then(res => res.json())
-    .then(({data}) => {
-      dispatch({type: 'GET_MOVIES', payload: data.movies})
-    })
-}
+// function graphQl(query) {
+// return fetch('http://localhost:3000/graphql', {
+//   method: 'POST', // or 'PUT'
+//   headers: {
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify({query}),
+// })
+// }
 
 // export const getMovies = () => {
   
-//     return dispatch =>  fetch('http://localhost:3000/movies')
+//     return dispatch =>  graphQl(`
+//           {
+//             movies {
+//                 title
+//                 posterImg
+//             }
+//           }
+//         `)
+    
 //     .then(res => res.json())
-//     .then(movies => dispatch({type: 'GET_MOVIES', payload: movies})
-//     )
+//     .then(({data}) => {
+//         dispatch({type: 'GET_MOVIES', payload: data.movies})
+//     })
 // }
+
+export const getMovies = () => {
+  
+    return dispatch =>  fetch('http://localhost:3000/movies')
+    .then(res => res.json())
+    .then(movies => dispatch({type: 'GET_MOVIES', payload: movies})
+    )
+}
 
 
 export const getMovie = (id) => {

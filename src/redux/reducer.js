@@ -24,11 +24,18 @@ const initialUser= {
 
 }
 
+// const initialMovies = {
+//     allMovies: [],
+//     searchedMovie: []
+// }
+
+
 
 const initialState = {
-    movies: [],
+    movies: [], 
     selectedMovie: initialList,
-    user: initialUser
+    user: initialUser,
+   
 }
 
 // title, released, genre, posterImg, imdbRating, runtime, director, writer, actor, plot, language, awards, boxOffice, trailer
