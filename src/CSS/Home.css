@@ -1,18 +1,4 @@
-/* .header {
-text-align: center;
-}
 
-.home{
-    background-color: black;
-    background-size: cover;
-    height: 100vh;
-    padding:0;
-    margin:0;
-    
-  } */
-  
-  
-  
   * {
     box-sizing: border-box;
   }
@@ -41,6 +27,8 @@ text-align: center;
 
   html body {
     height: 100%;
-    background-image: url("https://i.ytimg.com/vi/44A-KNz2U-w/maxresdefault.jpg")
+    /* background-image: url("https://i.ytimg.com/vi/44A-KNz2U-w/maxresdefault.jpg"); */
+   
+    
   }
 

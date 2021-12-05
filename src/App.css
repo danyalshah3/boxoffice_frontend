@@ -1,9 +1,12 @@
 body {
   text-align: center;
   font-family: sans-serif;
-  /* background-image: url("https://i.ytimg.com/vi/44A-KNz2U-w/maxresdefault.jpg"); */
+  /* background-image: url(/static/media/welcome.0b4597cf.png); */
   /* background-color: black; */
+  /* margin-bottom: 25px 0px; */
+ 
 }
+
 
 
 html {
@@ -11,8 +14,14 @@ html {
   width: 100%;
 }
 
+/* html body {
+  background-image: url('file:///Users/danyalshah/Downloads/Brand%20Assets%20Download%20(83c8dd69-887f-424d-adb1-b9072668b55d)/78856742.png');
+} */
+
+
+
 h1 {
-  color:red;
+  color: goldenrod;
   font-size: 50px;
   font-weight: bold;
  text-shadow: 2px 2px 5px black;
@@ -20,8 +29,12 @@ h1 {
   
 }
 
+li {
+  color: white;
+}
+
 h2 {
-  color:red;
+  color:#e5e6e6;
   font-size: 32px;
   font-weight: bold;
  text-shadow: 2px 2px 5px black;
@@ -192,6 +205,9 @@ textarea {
   transition: transform 0.2s;
   float: left;
 } 
+
+
+
 
 
 /* .modal {

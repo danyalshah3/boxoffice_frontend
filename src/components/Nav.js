@@ -40,22 +40,22 @@ function  Nav({Logout}) {
         <FormControlLabel
           control={
             <Switch
-              checked={auth}
-              onChange={handleChange}
-             aria-label="login switch"
+            //   checked={auth}
+            //   onChange={handleChange}
+            //  aria-label="login switch"
             />
           }
           label="home"
         />
       </FormGroup>
-      <AppBar position="static">
+      <AppBar style={{ background: '#b8860b' }}>
         <Toolbar>
           <IconButton
-            size="smalll"
-            edge="start"
-            color="primary"
-            aria-label="menu"
-            sx={{ mr: 2 }}
+            // size="smalll"
+            // edge="start"
+            // color="primary"
+            // aria-label="menu"
+            // sx={{ mr: 2 }}
           >
             <MenuIcon />
           </IconButton>
@@ -64,17 +64,17 @@ function  Nav({Logout}) {
           </Typography>
           {auth && (
             <div>
-              <IconButton
+              <IconButton  style={{ background: '#F5BD02' }}
                 size="small"
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleMenu}
-                color="inherit"
+                
               >
                 <AccountCircle />
               </IconButton>
-              <Menu
+              <Menu  
                 id="menu-appbar"
                 anchorEl={anchorEl}
                 anchorOrigin={{
@@ -90,7 +90,7 @@ function  Nav({Logout}) {
                 onClose={handleClose}
               >
                 <MenuItem onClick={handleClose}><Button className="glow-on-hover" variant="contained" color="success" size="small"><NavLink  to={`/movies`}><h5>See All Movies</h5></NavLink></Button></MenuItem>
-                <MenuItem onClick={handleClose}></MenuItem>
+                {/* <MenuItem onClick={handleClose}></MenuItem> */}
                 <MenuItem onClick={handleClose}><Button className="glow-on-hover" variant="contained" color="success" size="small"><NavLink to={"/transations"}><h5>Rentals</h5></NavLink></Button></MenuItem>
                 <MenuItem onClick={handleClose}><Button variant="contained" color="error"  size="small" onClick={Logout}><h5>Logout</h5></Button> </MenuItem>
               </Menu>
@@ -104,61 +104,3 @@ function  Nav({Logout}) {
 
 export default connect(null, {Logout})(Nav)
 
-// const StyledBadge = styled(Badge)(({ theme }) => ({
-//     '& .MuiBadge-badge': {
-//       right: -3,
-//       top: 13,
-//       border: `2px solid ${theme.palette.background.paper}`,
-//       padding: '0 4px',
-//     },
-//   }));
-  
-
-//   function  Nav({Logout}){
-//   return (
-//     <Box sx={{ flexGrow: 1 }}>
-//       <AppBar position="static">
-//         <Toolbar variant="dense">
-//           <IconButton
-//             size="small"
-//             edge="start"
-//             color="primary"
-//             aria-label="menu"
-//             sx={{ mr: 2 }}
-//           >
-//             <MenuIcon />
-//           </IconButton>
-//           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-//           <Button  variant="contained" color="success"  size="small"><NavLink  to={`/movies`}><h3>See All Movies</h3></NavLink></Button>
-//            <Button className="button" ><NavLink to={"/home"}><h3>Home</h3></NavLink></Button>
-//            <Button size="small"><NavLink to={"/users/transations"}><h5>Movies</h5></NavLink></Button>
-//           </Typography>
-//           <Button variant="contained" color="error"  size="small" onClick={Logout}><h3>Logout</h3></Button>
-//         </Toolbar>
-//       </AppBar>
-//     </Box>
-//   );
-// }
-
-
- 
-
-    // function  Nav({Logout}){
-    //     return <nav className="nav">
-    //        <Button  variant="contained" color="success"  size="small"><NavLink  to={`/movies`}><h3>See All Movies</h3></NavLink></Button>
-    //        <Button className="button" color="success"><NavLink to={"/home"}><h3>Home</h3></NavLink></Button>
-
-           
-    //        <Button size="small"><IconButton aria-label="cart"><StyledBadge ><NavLink to={"/users/transations"}><h5>Movies</h5></NavLink><MovieIcon />
-    //   </StyledBadge></IconButton></Button>
-    //         <Button variant="contained" color="error"  size="small" onClick={Logout}><h3>Logout</h3></Button>
-    //     </nav>
-    // }
- 
- 
- 
-       
-  
- 
- 
- 

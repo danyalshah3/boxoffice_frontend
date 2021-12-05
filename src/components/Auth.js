@@ -4,6 +4,8 @@ import {signUp} from '../redux/actionCreators'
 import {login} from '../redux/actionCreators'
 import {connect} from 'react-redux'
 import {useHistory} from 'react-router-dom'
+// import '../CSS/Auth.css'
+import background from './Images/78856742.png'
 
 
 import * as React from 'react';
@@ -60,8 +62,7 @@ function Auth(props){
    }
 
    
-   
-   return <>
+ return <>
         {signup ? <h2>SIGN UP</h2> : <h2>LOGIN</h2>}
         <ThemeProvider theme={theme}>
           <Container component="main" maxWidth="xs">
@@ -81,7 +82,7 @@ function Auth(props){
               </Typography>
               <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                   
-                {signup && <TextField
+                {signup && <TextField 
                 type="text" name="name" placeholder="Type your Name"  value={name} onChange={(e) => setName(e.target.value)}
                 margin="normal"
                 required
@@ -92,6 +93,7 @@ function Auth(props){
                
                 < TextField
                   margin="normal"
+                  bold
                   required
                   fullWidth
                   type="text" name="username" placeholder="Type your Username" value={username} onChange={(e) => setUsername(e.target.value)}
@@ -112,10 +114,6 @@ function Auth(props){
                   type="password" name="password" placeholder="Password"  value={password} onChange={(e) => setPassword(e.target.value)}
                   autoComplete="current-password"
                   />
-                <FormControlLabel
-                  control={<Checkbox value="remember" color="primary" />}
-                  label="Remember me"
-                  />
                 <Button
                   type="submit"
                   fullWidth
@@ -124,8 +122,13 @@ function Auth(props){
                   >
                  Submit
                 </Button>
+                <FormControlLabel
+                  control={<Checkbox value="remember" color="primary" />}
+                  label="Remember me"
+                  />
                 <Grid container>
                   <Grid item xs>
+        <Button variant="contained" color="success" onClick={toggleSignUp}> {signup ? 'LOGIN' : 'SIGNUP'} </Button>
                     <Link href="#" variant="body2">
                     </Link>
                   </Grid>
@@ -139,42 +142,12 @@ function Auth(props){
             {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
           </Container>
         </ThemeProvider>
-         <Button variant="contained" color="success" onClick={toggleSignUp}> {signup ? 'LOGIN' : 'SIGNUP'} </Button>
 
       
         </>
     }
     
-    
-    
-    
-    
     export default connect (null , {signUp, login})(Auth);
     
     
-    // return <>
-    //   {signup ? <h1>SIGN UP</h1> : <h1>LOGIN</h1>}
-      
- 
-    //  <form onSubmit={handleSubmit}>
-    //  {signup && <label>
-    //       Name:
-    //     <input type="text" name="name" placeholder="e.g John"  value={name} onChange={(e) => setName(e.target.value)}/>
-    //     </label>}
-    //     <label>
-    //       UserName:
-    //     <input type="text" name="username"  value={username} onChange={(e) => setUsername(e.target.value)}/>
-    //     </label>
-    //     {signup && <label>
-    //      Credit Card Number:
-    //     <input type="text" name="creditcard" placeholder="e.g Master, Visa, AE"   value={creditcardnum} onChange={(e) => setCreditCardNum(e.target.value)}/>
-    //     </label>}
-    //     <label>
-    //      Password:
-    //     <input type="password" name="password" placeholder="e.g 1234"  value={password} onChange={(e) => setPassword(e.target.value)}/>
-    //     </label>
-    //     <input type="submit" value="Submit" /> 
-    //  </form>
- 
-    //   <Button variant="outlined" onClick={toggleSignUp}> {signup ? "LOGIN" : "SIGNUP"} </Button>
-    //      </>
+    

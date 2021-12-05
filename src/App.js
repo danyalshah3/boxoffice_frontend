@@ -12,14 +12,13 @@ import {autoLogin} from './redux/actionCreators'
 import Home from './components/Home'
 import Welcome from './components/Welcome'
 
+// import backgroundVideo from './components/backgroundvideo';
 
 
 
 
 function App({user, autoLogin}) {
 
-
-//  const [cartItems, setCartItems] = useState([])
   
   useEffect(() => {
     localStorage.token && autoLogin()
@@ -29,33 +28,23 @@ function App({user, autoLogin}) {
  
   
   return (
-  
     <>
     {user.username ?
       <Switch>
       <Route path="/movies/:id"><MovieShow/></Route>
       <Route path="/movies"><MovieIndex /></Route>
       <Route path="/home"><Home/></Route>
-      <Transations transations={user}/>
-      {/* <Route path="/transations"><Transations/></Route> */}
-      {/* <Route path="/transations"><Cart/></Route> */}
+      <Transations user={user}/>
       </Switch> :
-      <Welcome/>
-     
-      
-    }
-    
-    
+      <Welcome/> 
+    } 
      </>
-    
-     
     
   );
 }
 
-const mapStateToProps = (state) => {
-  // console.log(state.user)
-  return {user: state.user}
-}
+  const mapStateToProps = (state) => {
+    return {user: state.user}
+  }
 
 export default connect(mapStateToProps, {autoLogin})(App);

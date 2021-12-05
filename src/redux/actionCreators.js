@@ -1,3 +1,4 @@
+import { accordionActionsClasses, CardActions } from "@mui/material"
 import { toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -29,16 +30,19 @@ import 'react-toastify/dist/ReactToastify.css'
 // }
 
 export const getMovies = () => {
-  
+  // let arrMovs = [];
     return dispatch =>  fetch('http://localhost:3000/movies')
     .then(res => res.json())
-    .then(movies => dispatch({type: 'GET_MOVIES', payload: movies})
+    .then(movies => {
+      // movies.map(m => arrMovs.push(m))
+      dispatch({type: 'GET_MOVIES', payload: movies})}
     )
+    
 }
 
 
 export const getMovie = (id) => {
-  
+//   console.log(id)
     return dispatch => fetch(`http://localhost:3000/movies/${id}`)
     .then(res => res.json())
     .then(movie => dispatch({type: 'GET_MOVIE', payload: movie}))
@@ -122,8 +126,8 @@ export const login = (user) => {
           toast.success('LOGGED OUT Successfully', {position: toast.POSITION.TOP_CENTER})
       }
   }
-
-  export const addTransation = (transation, userId) => {
+  toast.configure()
+  export const addTransation = (movieId, userId) => {
       const userId1 = parseInt(userId)
     //   console.log(transation)
       return dispatch => fetch(`http://localhost:3000/transations`, {
@@ -133,14 +137,15 @@ export const login = (user) => {
               'Authorization': localStorage.token
             },
             body: JSON.stringify({
-                movie_id: transation,
+                movie_id: movieId,
                 user_id: userId1
             })
     })
     .then(res => {
-        //  console.log(res)
+        //   console.log(res)
       if (res.ok) {
         res.json().then(transation => dispatch({type: "ADD_TRANSATION", payload: transation}))
+        toast.success('RENTED SUCCESSFULLY', {position: toast.POSITION.TOP_CENTER})
       } else {
         res.json().then(res => alert(res.errors))
       }
@@ -148,11 +153,29 @@ export const login = (user) => {
   }
 
 
-//   export const handleUserTransation = (userId) => {
-//     const userId1 = parseInt(userId)
-//     fetch(`http://localhost:3000//users/${userId1}`)
-//     .then(res => res.json())
-//     .then(transation => {
-//         // console.log(transation)
+
+//   toast.configure()
+// export const deleteTransation = (id) => {
+//     // console.log(id)
+//     return dispatch => fetch(`http://localhost:3000/transations/${id}`, {
+//         method: "DELETE"
 //     })
-// }
+//     .then(transation => {
+//         console.log(transation)
+//         dispatch({type: "DELETING_TRANSATION", payload: transation})},
+//     toast.error('MOVIE RETURNED', {position: toast.POSITION.TOP_CENTER})
+//       );
+//   };
+
+
+// toast.configure()
+export const deleteTransation = (id) => {
+    // console.log(id)
+    return dispatch => fetch(`http://localhost:3000/transations/${id}`, {
+        method: "DELETE"
+    })
+    .then(transation => dispatch({type: "DELETE_TRANSATION", payload: transation})
+    // toast.error('MOVIE RETURNED', {position: toast.POSITION.TOP_CENTER})
+    );
+
+  }
