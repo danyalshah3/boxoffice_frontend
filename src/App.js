@@ -12,10 +12,6 @@ import {autoLogin} from './redux/actionCreators'
 import Home from './components/Home'
 import Welcome from './components/Welcome'
 
-// import backgroundVideo from './components/backgroundvideo';
-
-
-
 
 function App({user, autoLogin}) {
 
@@ -23,9 +19,6 @@ function App({user, autoLogin}) {
   useEffect(() => {
     localStorage.token && autoLogin()
   }, [autoLogin])
-
-
- 
   
   return (
     <>

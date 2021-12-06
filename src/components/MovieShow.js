@@ -1,10 +1,8 @@
 import {useParams} from 'react-router-dom'
 import {connect} from 'react-redux'
 import { getMovie } from '../redux/actionCreators'
-import {addTransation} from '../redux/actionCreators'
 import {clearMovie} from '../redux/actionCreators'
 import {useEffect} from 'react'
-import {useState} from 'react'
 import {Link} from 'react-router-dom'
 import Nav from './Nav'
 import '../scss/movieshow.scss'
@@ -13,7 +11,7 @@ import '../scss/movieshow.scss'
 import * as React from 'react';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
-import { FormControlUnstyledContext } from '@mui/material'
+
 
 
 

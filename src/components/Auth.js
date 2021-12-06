@@ -1,11 +1,9 @@
-// import Auth from 'react'
+
 import {useState} from 'react'
 import {signUp} from '../redux/actionCreators'
 import {login} from '../redux/actionCreators'
 import {connect} from 'react-redux'
 import {useHistory} from 'react-router-dom'
-// import '../CSS/Auth.css'
-import background from './Images/78856742.png'
 
 
 import * as React from 'react';
@@ -39,10 +37,6 @@ function Auth(props){
   
 
   const theme = createTheme();
-
-
-
-
 
    const [signup, setSignUp] = useState(false)
    const [name, setName] = useState("")

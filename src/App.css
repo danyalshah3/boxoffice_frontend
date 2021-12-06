@@ -1,24 +1,12 @@
 body {
   text-align: center;
   font-family: sans-serif;
-  /* background-image: url(/static/media/welcome.0b4597cf.png); */
-  /* background-color: black; */
-  /* margin-bottom: 25px 0px; */
- 
 }
-
-
 
 html {
   height: 100%;
   width: 100%;
 }
-
-/* html body {
-  background-image: url('file:///Users/danyalshah/Downloads/Brand%20Assets%20Download%20(83c8dd69-887f-424d-adb1-b9072668b55d)/78856742.png');
-} */
-
-
 
 h1 {
   color: goldenrod;

@@ -2,11 +2,6 @@ import Auth from './Auth'
 import * as React from 'react';
 import background from './Images/welcome.png'
 import '../CSS/welcome.css';
-// import ImageList from '@mui/material/ImageList';
-// import ImageListItem from '@mui/material/ImageListItem';
-// import ImageListItemBar from '@mui/material/ImageListItemBar';
-// import IconButton from '@mui/material/IconButton';
-// import StarBorderIcon from '@mui/icons-material/StarBorder';
 
  function welcome()  {
 
@@ -16,8 +11,6 @@ import '../CSS/welcome.css';
         </div>
      <Auth/>
      </div>
-
-
   
 }
 
