@@ -2,10 +2,9 @@ import {useState} from 'react'
 import {useEffect} from 'react'
 import '../scss/movie.scss'
 import {connect} from 'react-redux'
-// import { deleteTransation, getMovie } from '../redux/actionCreators'
 
 function TransationsDisplay(props) {
-
+  // console.log(props.movie.title)
 
    
     return ( <div className="movie-desc">

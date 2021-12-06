@@ -12,7 +12,7 @@ import '../CSS/welcome.css';
 
     return <div className="welcome" style={{backgroundImage: `url(${background}`, width: '110%',  border: '20px solid white'}}>
        <div >
-        <heading><h1>BOX OFFICE</h1></heading>
+        <h1>BOX OFFICE</h1>
         </div>
      <Auth/>
      </div>

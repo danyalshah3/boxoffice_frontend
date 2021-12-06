@@ -2,33 +2,6 @@ import { accordionActionsClasses, CardActions } from "@mui/material"
 import { toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css'
 
-// function graphQl(query) {
-// return fetch('http://localhost:3000/graphql', {
-//   method: 'POST', // or 'PUT'
-//   headers: {
-//     'Content-Type': 'application/json',
-//   },
-//   body: JSON.stringify({query}),
-// })
-// }
-
-// export const getMovies = () => {
-  
-//     return dispatch =>  graphQl(`
-//           {
-//             movies {
-//                 title
-//                 posterImg
-//             }
-//           }
-//         `)
-    
-//     .then(res => res.json())
-//     .then(({data}) => {
-//         dispatch({type: 'GET_MOVIES', payload: data.movies})
-//     })
-// }
-
 export const getMovies = () => {
   // let arrMovs = [];
     return dispatch =>  fetch('http://localhost:3000/movies')
@@ -154,28 +127,47 @@ export const login = (user) => {
 
 
 
-//   toast.configure()
-// export const deleteTransation = (id) => {
-//     // console.log(id)
-//     return dispatch => fetch(`http://localhost:3000/transations/${id}`, {
-//         method: "DELETE"
-//     })
-//     .then(transation => {
-//         console.log(transation)
-//         dispatch({type: "DELETING_TRANSATION", payload: transation})},
-//     toast.error('MOVIE RETURNED', {position: toast.POSITION.TOP_CENTER})
-//       );
-//   };
+      //  toast.configure()
+      //   export const deleteTransation = (id) => {
+      //     // console.log(id)
+      //     return dispatch => fetch(`http://localhost:3000/transations/${id}`, {
+      //         method: "DELETE"
+      //     })
+      //     .then(res => {
+      //       if (res.ok) {
+      //     res.json().then(transation => dispatch({type: "DELETE_TRANSATION", payload: transation}))
+      //   toast.error('MOVIE RETURNED', {position: toast.POSITION.TOP_CENTER})
+      // } else {
+      //   res.json().then(res => alert(res.errors))  
+      // }
+      // })
+      //   } 
+
+      export const deleteTransation = (id) => {
+      
+        return dispatch => fetch(`http://localhost:3000/transations/${id}`, {
+           method: "DELETE",
+           headers: {
+            'Content-Type': 'application/json',
+            'Authorization': localStorage.token
+          },
+
+        })
+        .then(res => dispatch({type: "DELETE_TRANSATION", payload: id}))
+      }
+
+      
 
 
 // toast.configure()
-export const deleteTransation = (id) => {
-    // console.log(id)
-    return dispatch => fetch(`http://localhost:3000/transations/${id}`, {
-        method: "DELETE"
-    })
-    .then(transation => dispatch({type: "DELETE_TRANSATION", payload: transation})
-    // toast.error('MOVIE RETURNED', {position: toast.POSITION.TOP_CENTER})
-    );
+// export const deleteTransation = (id) => {
+//     console.log(id)
+//     return dispatch => fetch(`http://localhost:3000/transations/${id}`, {
+//         method: "DELETE"
+//     })
+//     // console.log(transation)
+//     .then(transation => dispatch({type: "DELETE_TRANSATION", payload: transation})
+//     // toast.error('MOVIE RETURNED', {position: toast.POSITION.TOP_CENTER})
+//     );
 
-  }
+//   }

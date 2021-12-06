@@ -17,8 +17,7 @@ const initialList = {
     boxOffice: "null",
     trailer: "",
     id: null,
-  // transations: []
-    
+
 }
 
 const initialUser= {
@@ -42,7 +41,7 @@ export default function reducer(state=initialState, action) {
     // console.log(state)
     switch (action.type){
         case "GET_MOVIES":
-            return {...state, movies: action.payload, moviesCopy: action.payload}
+            return {...state, movies: action.payload, searchResults: action.payload}
            
             case "GET_MOVIE":
                 return {...state, selectedMovie: action.payload}
@@ -54,16 +53,15 @@ export default function reducer(state=initialState, action) {
                         case "LOGOUT":
                             return {...state, user: initialUser}
                             case "ADD_TRANSATION":
-            console.log(state)
-            return {...state, user: {...state.user, transations: [action.payload, ...state.user.transations]}}
-            case "DELETE_TRANSATION":
-                console.log(state.user.transations)
-                return {...state, transations: state.user.transations.filter(item => console.log(item))}
-                // item.id !== action.payload.id
-                // state.pop()
-                // return [
-                //     ...state
-        default: 
+                               return {...state, user: {...state.user, transations: [action.payload, ...state.user.transations]}}
+                            case "DELETE_TRANSATION":
+                               let newList = state.user.transations.filter(function (element, index) {
+                                    return element.id !== action.payload
+                                })
+                                // .splice(item.index, 1)}
+                                // return { todos: state.todos.filter((todo) => todo !== action.payload) }
+                                // (transation => transation !== action.payload)]}
+         default: 
         return {...state}
      
     }

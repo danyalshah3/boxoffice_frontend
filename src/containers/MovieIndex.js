@@ -33,8 +33,8 @@ function MovieIndex({getMovies, movies, addTransation}) {
     
     return <div className="fullpage" style={{backgroundImage: `url(${background})`}}>
     <Nav/><br></br>
-
-    <SearchForm movies={movies}/>
+<br></br>
+    <SearchForm movies={movies}/><br></br>
         {movies.map(movie => <MoviePage {...movie} handleClick={handleClick} key={movie.id} />)}
       
 

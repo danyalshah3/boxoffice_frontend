@@ -15,7 +15,7 @@ import reportWebVitals from "../reportWebVitals";
 function Transations({user}){
     //  console.log(user)
 
-    const [transations, settransations] = useState(user.transations)
+    const [transations, setTransations] = useState([])
 //    console.log(transations)
     // const [transactions]
     // const arr = [];
@@ -35,6 +35,8 @@ function Transations({user}){
     // }
    
     const deleteTrans = (id) => {
+        setTransations(deleteTransation(id))
+    }
     //    fetch(`http://localhost:3000/transations/${id}`, {
     //         method: 'DELETE',
     //     }).then(() => {
@@ -43,11 +45,9 @@ function Transations({user}){
             //console.log(transations)
             //settransations(Object.values((transations)).filter(n => n.id !== id))
         // })
-        console.log(transations)
-        settransations(deleteTransation(id))
+        // console.log(transations)
         // settransations(Object.values((transations)).filter(n => n.id !== id))
-        console.log(transations)
-}
+        // console.log(transations)
 
         
         // console.log(transations)
@@ -96,10 +96,11 @@ function Transations({user}){
     //     })
 
     
+    //    console.log(user.transations)
     return <div className="transations">
         <Nav/>
     {user.transations.map(transation => <TransationDisplay  deleteTrans={deleteTrans} {...transation} array={user.transations} key={transation.id}/>)}
-   
+
     </div>
     
 
