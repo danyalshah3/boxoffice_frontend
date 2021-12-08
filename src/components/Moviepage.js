@@ -3,10 +3,6 @@ import '../scss/movie.scss'
 import * as React from 'react';
 
 
-
-
-
-
 function MoviePage({id, posterImg, title, handleClick}){
 
     return <div className="movie-desc" >

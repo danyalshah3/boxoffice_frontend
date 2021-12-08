@@ -27,7 +27,7 @@ function App({user, autoLogin}) {
       <Route path="/movies/:id"><MovieShow/></Route>
       <Route path="/movies"><MovieIndex /></Route>
       <Route path="/home"><Home/></Route>
-      <Transations user={user}/>
+      <Route path="/transations"><Transations user={user}/></Route>
       </Switch> :
       <Welcome/> 
     } 

@@ -1,4 +1,7 @@
 # Getting Started with Create React App
+This app requires you to set an ENV variable called API. To get this started on your local machine, please create a .env file in the root directory and add the backend URL like this:
+
+REACT_APP_API=http://localhost:3000
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

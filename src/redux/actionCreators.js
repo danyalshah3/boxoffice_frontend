@@ -83,7 +83,7 @@ export const login = (user) => {
     })
     .then(res => res.json())
     .then(response => {
-        localStorage.user_id = response.user.id
+      localStorage.user_id = response.user.id
       localStorage.token = response.token
       dispatch({type: "SET_USER", payload: response.user})
     })
@@ -97,19 +97,18 @@ export const login = (user) => {
           toast.success('LOGGED OUT Successfully', {position: toast.POSITION.TOP_CENTER})
       }
   }
+
   toast.configure()
-  export const addTransation = (movieId, userId) => {
-      const userId1 = parseInt(userId)
-      return dispatch => fetch(`http://localhost:3000/transations`, {
-          method: "POST",
-          headers: {
-              'Content-Type': 'application/json',
-              'Authorization': localStorage.token
-            },
-            body: JSON.stringify({
-                movie_id: movieId,
-                user_id: userId1
-            })
+  export const addTransation = (movieId) => {
+    return dispatch => fetch(`http://localhost:3000/transations`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.token
+      },
+      body: JSON.stringify({
+        movie_id: movieId
+      })
     })
     .then(res => {
       if (res.ok) {
@@ -131,3 +130,28 @@ export const login = (user) => {
         toast.error('MOVIE RETURNED', {position: toast.POSITION.TOP_CENTER})
       }
     }
+
+
+  //   toast.configure()
+  // export const addTransation = (movieId, userId) => {
+  //     const userId1 = parseInt(userId)
+  //     return dispatch => fetch(`http://localhost:3000/transations`, {
+  //         method: "POST",
+  //         headers: {
+  //             'Content-Type': 'application/json',
+  //             'Authorization': localStorage.token
+  //           },
+  //           body: JSON.stringify({
+  //               movie_id: movieId,
+  //               user_id: userId1
+  //           })
+  //   })
+  //   .then(res => {
+  //     if (res.ok) {
+  //       res.json().then(transation => dispatch({type: "ADD_TRANSATION", payload: transation}))
+  //       toast.success('RENTED SUCCESSFULLY', {position: toast.POSITION.TOP_CENTER})
+  //     } else {
+  //       res.json().then(res => alert(res.errors))
+  //     }
+  //   })
+  // }

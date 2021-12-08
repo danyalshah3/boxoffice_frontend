@@ -30,11 +30,11 @@ function MovieShow({getMovie, title, released, genre, posterImg, imdbRating, run
     const loadedPage = () =>
     <div className="showUs" >
   
-      <Nav/>
-    <img  className="cover" src={posterImg} alt={title}/><br></br>
-    <h1 className="title1">{title}</h1><br></br>
+    <Nav/>
+    <img className="cover" src={posterImg} alt={title}/><br></br>
+    <h1  className="title1">{title}</h1><br></br>
     
-     <div className="container">
+    <div className="container">
     <p  className="title2">Date: &nbsp;{released}</p>
     <p  className="genre">Genre: &nbsp;{genre}</p>
     <Typography component="legend" className="title2"><h2>ImdbRating: &nbsp;{imdbRating}</h2></Typography>

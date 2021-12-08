@@ -4,9 +4,6 @@ import Nav from '../components/Nav'
 import { useState } from "react";
 import {connect} from 'react-redux'
 import {deleteTransation} from '../redux/actionCreators';
-// import reportWebVitals from "../reportWebVitals";
-
-
 
 
 function Transations({user, deleteTransation}){
@@ -20,8 +17,7 @@ function Transations({user, deleteTransation}){
    
     return <div className="transations">
         <Nav/>
-    {user.transations.map(transation => <TransationDisplay  deleteTrans={deleteTrans} {...transation} array={user.transations} key={transation.id}/>)}
-
+    {user.transations.map(transation => <TransationDisplay  deleteTrans={deleteTrans} {...transation}  key={transation.id}/>)}
     </div>
 }
 

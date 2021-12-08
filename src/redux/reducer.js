@@ -51,8 +51,11 @@ export default function reducer(state=initialState, action) {
         case "LOGOUT":
         return {...state, user: initialUser}
 
+        // case "ADD_TRANSATION":
+        // return {...state, user: {...state.user, transations: [action.payload, ...state.user.transations]}}
         case "ADD_TRANSATION":
         return {...state, user: {...state.user, transations: [action.payload, ...state.user.transations]}}
+
 
         case "DELETE_TRANSATION":
         return {...state, user: {...state.user, transations: [...state.user.transations.filter(transation => transation.id !== action.payload)]}}
