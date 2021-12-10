@@ -12,6 +12,7 @@ function MoviePage({id, posterImg, title, handleClick}){
     <div className="ui three column grid"  >
         <div className="link" >
     
+    
      <Link to={`/movies/${id}`}><img className="locandina" src={posterImg}  alt={title}/><br></br></Link>
      <button className="glow-on-hover"  onClick={() => handleClick(id)}>Rent(HD)</button>
      <h4>{title}</h4>
