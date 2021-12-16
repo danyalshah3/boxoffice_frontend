@@ -1,9 +1,51 @@
-# Getting Started with Create React App
+<!-- # Getting Started with Create React App
 This app requires you to set an ENV variable called API. To get this started on your local machine, please create a .env file in the root directory and add the backend URL like this:
 
-REACT_APP_API=http://localhost:3000
+<!-- REACT_APP_API=http://localhost:3000 -->
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). --> -->
+## Project initialization:
+
+Project is initialized with: npx create-react-app boxoffice-frontend. To work with redux you need to add redux through npm add redux.
+You start by creating store first inside the index.js file. Import neccessary files from react-redux. It should look similar to this:
+
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import {createStore, applyMiddleware, compose} from 'redux'
+import reducer from './redux/reducer'
+import {Provider} from 'react-redux'
+import thunk from 'redux-thunk'
+import {BrowserRouter as Router} from 'react-router-dom'
+
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer, composeEnhancers( applyMiddleware(thunk)
+));
+
+ReactDOM.render(
+  <React.StrictMode>
+   <Router><Provider store={store}> <App /></Provider></Router>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+## Structure:
+
+You need to add action creator file where you put your functions and dispatch them to store and reducers. App needs to be structured based on containers and its components. 
+
+## Redux:
+
+Redux helps to useHooks for example, useEffect and useState to build the app which makes it easy to build app using functional components and use state inside them. State is stored in a global object store which makes it easy for any component to access data from store.
+
 
 ## Available Scripts
 
